@@ -18,8 +18,9 @@ const Footer = () => {
       <div className={styles.footerMenu}>
         <div className='container'>
           <div className='row'>
-            <div className='col-xs-1 col-sm-6 col-lg-3'>
-              <div className={styles.menuWrapper}>
+            <div className={styles.menuWrapper}>
+              <div className='col-xs-1 col-sm-6 col-lg-3'>
+
                 <h5>Information</h5>
                 <ul>
                   <li>
