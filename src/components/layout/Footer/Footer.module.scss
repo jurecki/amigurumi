@@ -1,0 +1,48 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  .footerMenu {
+    background-color: $footer-bg;
+    padding: 3rem 0;
+
+    .menuWrapper {
+      h5 {
+        color: #ffff;
+        text-transform: uppercase;
+        margin: 0 0 1rem 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      text-transform: uppercase;
+
+      li {
+
+        a {
+          font-size:  14px;
+          line-height: 30px;
+          color:  #ffff;
+          text-decoration: none;
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  .bottomBar {
+
+    .copyright {
+
+    }
+
+    .socialMedia {
+
+    }
+
+  }
+}
