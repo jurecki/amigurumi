@@ -31,3 +31,12 @@
     text-decoration: none;
   }
 }
+
+.small {
+  background-color: $text-color-prime;
+  color: $text-color-light;
+  font-size: 13px;
+  line-height: 24px;
+  padding: 5px 10px;
+  font-weight: 400;
+}
