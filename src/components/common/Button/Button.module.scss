@@ -1,0 +1,33 @@
+@import "../../../styles/settings.scss";
+
+.arrow {
+  color: $text-color-light;
+  background-color: $bg-color-light;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 6px 30px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+
+  &:hover {
+    color: $text-color-light;
+    background-color: $text-color-prime;
+    text-decoration: none;
+  }
+}
+
+.white {
+  background-color: $bg-color-light;
+  padding: 10px 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  color: $text-color-light;
+
+  &:hover {
+    color: $text-color-light;
+    background-color: $text-color-prime;
+    text-decoration: none;
+  }
+}
