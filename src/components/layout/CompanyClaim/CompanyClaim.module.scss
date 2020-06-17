@@ -1,0 +1,75 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: $bg-color-light;
+
+  :global(.container) > :global(.row) {
+    height: 125px;
+  }
+
+  .phoneNumber {
+    color: $text-color-light;
+    p {
+      font-weight: 500;
+    }
+    .icon {
+      margin-right: 1rem;
+      font-size: 1.3rem;
+      color: $text-color-light;
+      &:hover {
+        color: $text-color-prime;
+      }
+    }
+  }
+
+  .logo {
+    margin-top: 10px;
+    .icon {
+      font-size: 4rem;
+      color: $text-color-light;
+      &:hover {
+        color: $text-color-prime;
+      }
+    }
+  }
+
+  .cart {
+    a {
+      color: $text-color-light;
+    }
+    .cartBox {
+      display: inline-block;
+      position: relative;
+
+      .cartIcon {
+        font-size: 3.3rem;
+        color: $text-color-light;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          color: $text-color-prime;
+        }
+      }
+
+      .cartCounter{
+        width: 50px;
+        height: 30px;
+        padding: 0 10px;
+        border-radius: 14px;
+        background-color: $bg-color-dark;
+        position: absolute;
+        top: 80%;
+        left: 20%;
+        opacity: 0.9;
+        transform: translate(50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: left;
+      }
+    }
+
+
+  }
+}
