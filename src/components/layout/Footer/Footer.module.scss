@@ -2,12 +2,12 @@
 
 .root {
   .footerMenu {
-    background-color: $footer-bg;
+    background-color: $bg-color-light;
     padding: 3rem 0;
 
     .menuWrapper {
       h5 {
-        color: #ffff;
+        color: $text-color-light;
         text-transform: uppercase;
         margin: 0 0 1rem 0;
       }
@@ -24,10 +24,10 @@
         a {
           font-size:  14px;
           line-height: 30px;
-          color:  #ffff;
+          color:  $text-color-light;
           text-decoration: none;
           &:hover {
-            color: $primary;
+            color: $text-color-prime;
           }
         }
       }
@@ -35,9 +35,9 @@
   }
 
   .bottomBar {
-    background-color: $footer-bg;
+    background-color: $bg-color-dark;
     padding: 10px 0;
-    color: #ffff;
+    color: $text-color-light;
 
     .copyright {
       p {
@@ -58,9 +58,9 @@
           a {
             font-size: 1.2rem;
             text-decoration: none;
-            color: #ffff;
+            color: $text-color-light;
             &:hover {
-              color: $primary
+              color: $text-color-prime
             }
           }
         }
