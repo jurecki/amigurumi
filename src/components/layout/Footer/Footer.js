@@ -18,9 +18,8 @@ const Footer = () => {
       <div className={styles.footerMenu}>
         <div className='container'>
           <div className='row'>
-            <div className={styles.menuWrapper}>
-              <div className='col-xs-1 col-sm-6 col-lg-3'>
-
+            <div className='col-xs-1 col-sm-6 col-lg-3'>
+              <div className={styles.menuWrapper}>
                 <h5>Information</h5>
                 <ul>
                   <li>
@@ -31,59 +30,59 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className='col-xs-1 col-sm-6 col-lg-3'>
-                <div className={styles.menuWrapper}>
-                  <h5>Moje Konto</h5>
-                  <ul>
-                    <li>
-                      <a href='#'>Login</a>
-                    </li>
-                    <li>
-                      <a href='#'>Lista zyczeń</a>
-                    </li>
-                    <li>
-                      <a href='#'>Zamówienia</a>
-                    </li>
-                  </ul>
-                </div>
+            </div>
+            <div className='col-xs-1 col-sm-6 col-lg-3'>
+              <div className={styles.menuWrapper}>
+                <h5>Moje Konto</h5>
+                <ul>
+                  <li>
+                    <a href='#'>Login</a>
+                  </li>
+                  <li>
+                    <a href='#'>Lista zyczeń</a>
+                  </li>
+                  <li>
+                    <a href='#'>Zamówienia</a>
+                  </li>
+                </ul>
               </div>
-              <div className='col-xs-1 col-sm-6 col-lg-3'>
-                <div className={styles.menuWrapper}>
-                  <h5>Produkty</h5>
-                  <ul>
-                    <li>
-                      <a href='#'>Oferty specjalne</a>
-                    </li>
-                    <li>
-                      <a href='#'>Nowe produkty</a>
-                    </li>
-                    <li>
-                      <a href='#'>Najwyzej oceniane</a>
-                    </li>
-                    <li>
-                      <a href='#'>Najcześciej kupowane</a>
-                    </li>
-                  </ul>
-                </div>
+            </div>
+            <div className='col-xs-1 col-sm-6 col-lg-3'>
+              <div className={styles.menuWrapper}>
+                <h5>Produkty</h5>
+                <ul>
+                  <li>
+                    <a href='#'>Oferty specjalne</a>
+                  </li>
+                  <li>
+                    <a href='#'>Nowe produkty</a>
+                  </li>
+                  <li>
+                    <a href='#'>Najwyzej oceniane</a>
+                  </li>
+                  <li>
+                    <a href='#'>Najcześciej kupowane</a>
+                  </li>
+                </ul>
               </div>
-              <div className='col-sx-1 col-sm-6 col-lg-3'>
-                <div className={styles.menuWrapper}>
-                  <h5>Szczegóły</h5>
-                  <ul>
-                    <li>
-                      <a href='#'>Opcje płatności</a>
-                    </li>
-                    <li>
-                      <a href='#'>Wysyłka i dostawa</a>
-                    </li>
-                    <li>
-                      <a href='#'>Zwroty</a>
-                    </li>
-                    <li>
-                      <a href='#'>Shipping</a>
-                    </li>
-                  </ul>
-                </div>
+            </div>
+            <div className='col-sx-1 col-sm-6 col-lg-3'>
+              <div className={styles.menuWrapper}>
+                <h5>Szczegóły</h5>
+                <ul>
+                  <li>
+                    <a href='#'>Opcje płatności</a>
+                  </li>
+                  <li>
+                    <a href='#'>Wysyłka i dostawa</a>
+                  </li>
+                  <li>
+                    <a href='#'>Zwroty</a>
+                  </li>
+                  <li>
+                    <a href='#'>Shipping</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -130,7 +129,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

@@ -35,13 +35,36 @@
   }
 
   .bottomBar {
+    background-color: $footer-bg;
+    padding: 10px 0;
+    color: #ffff;
 
     .copyright {
+      p {
+        margin: 0;
+        font-size: 0.8rem;
+        line-height: 20px;
+        margin-top: 0px;
 
+      }
     }
 
     .socialMedia {
-
+      ul {
+        list-style: none;
+        li {
+          display: inline-block;
+          margin-left: 1rem;
+          a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #ffff;
+            &:hover {
+              color: $primary
+            }
+          }
+        }
+      }
     }
 
   }
