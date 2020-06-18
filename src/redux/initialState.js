@@ -36,7 +36,7 @@ const initialState = {
       describe: 'Handmade knitted toy. Amigurumi dog toy. Crochet stuffed animals. Miniature dog',
       category: 'pets',
       price: 99,
-      image: 'https://image.shutterstock.com/image-photo/brown-amigurumi-dog-shot-by-600w-1622701582.jpg',
+      image: 'https://4.bp.blogspot.com/-11tovc_PrJg/Wd4eLBi_qSI/AAAAAAAAAQ4/TSUwMIno2NwoJCwn332CkcyXcaEHnZfwQCLcBGAs/s1600/crochet-dog-amigurumi.jpg',
     },
     {
       id: '5',
@@ -44,7 +44,7 @@ const initialState = {
       describe: 'Crochet Kitty Cat Toy Amigurumi Kitty Cat Toy Stuffed Kitty Cat',
       category: 'pets',
       price: 99,
-      image: 'https://image.shutterstock.com/image-photo/crochet-kitty-cat-toy-amigurumi-600w-1623860083.jpg',
+      image: 'https://1.bp.blogspot.com/-JWb5umREJi0/Xr1cjuRNlmI/AAAAAAAACtw/jORhe-XSpyA1ZpZ19ZLP2uYL-TYaMNZdACLcBGAsYHQ/s1600/crochet-cat-amigurumi.jpg',
     },
     {
       id: '6',
@@ -60,7 +60,7 @@ const initialState = {
       describe: 'Crochet Kitty Peppa Pig Toy Amigurumi Kitty Cat Toy Stuffed Kitty Cat',
       category: 'cartoons',
       price: 99,
-      image: 'https://image.shutterstock.com/image-photo/handmade-organic-design-amigurumi-dragon-600w-1642886059.jpg',
+      image: 'https://havvadesigns.com/wp-content/uploads/blummy-ana-resim.jpg',
     },
     {
       id: '8',

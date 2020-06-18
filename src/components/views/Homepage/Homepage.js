@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Homepage.module.scss';
 
 import FuturedProducts from '../../features/FeaturedProducts/FeaturedProducts';
-import NewProducts from '../../features/NewProducts/NewProducts';
+import NewProducts from '../../features/NewProducts/NewProductsContainer';
 
 const Homepage = () => (
   <div className={styles.root}>

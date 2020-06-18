@@ -1,9 +1,12 @@
-import {combineReducers, createStore} from 'redux';
+import { combineReducers, createStore } from 'redux';
 import initialState from './initialState';
+import categoriesRedux from './categoriesRedux';
+import productsRedux from './productsRedux';
 
 //define reducer
 const reducers = {
-
+  categories: categoriesRedux,
+  products: productsRedux,
 };
 
 // add blank reducers for initial state properties without reducers

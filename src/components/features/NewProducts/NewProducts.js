@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './NewProducts.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-
+import PropTypes from 'prop-types';
 
 class NewProducts extends React.Component {
+
   render() {
+    const { products } = this.props;
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -12,10 +14,8 @@ class NewProducts extends React.Component {
             <div className='row'>
               <h3>New Products</h3>
             </div>
-            <div clasName='row'>
-              <div className='col-12 col-lg-3'>
-                <ProductBox />
-              </div>
+            <div className='row'>
+              {products.map(product => <div key={product.id} className='col-12 col-lg-3'> <ProductBox product={product} /> </div>)}
             </div>
           </div>
         </div>
@@ -23,5 +23,18 @@ class NewProducts extends React.Component {
     );
   }
 }
+
+
+NewProducts.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      category: PropTypes.string,
+      price: PropTypes.number,
+      describe: PropTypes.string,
+      image: PropTypes.string,
+    })),
+};
 
 export default NewProducts;
