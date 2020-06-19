@@ -80,16 +80,16 @@ class RegisterForm extends React.Component {
         </div>
         <div className="form-group">
           <label htmlFor="inputAddress">Address</label>
-          <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" name='address' value={address} onChange={this.handleOnChange} />
+          <input type="text" className="form-control" id="inputAddress" placeholder="Wroclawska 13/3" name='address' value={address} onChange={this.handleOnChange} />
         </div>
         <div className="form-row">
           <div className="form-group col-md-4">
             <label htmlFor="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity" name='city' value={city} onChange={this.handleOnChange} />
+            <input type="text" className="form-control" id="inputCity" placeholder="Wroclaw"  name='city' value={city} onChange={this.handleOnChange} />
           </div>
           <div className="form-group col-md-2">
             <label htmlFor="inputZip">Zip</label>
-            <input type="text" className="form-control" id="inputZip" name='zip' value={zip} onChange={this.handleOnChange} />
+            <input type="text" className="form-control" id="inputZip" placeholder="50-213" name='zip' value={zip} onChange={this.handleOnChange} />
           </div>
         </div>
         <div className='form-row justify-content-center mt-3'>

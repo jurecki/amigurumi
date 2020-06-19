@@ -11,6 +11,7 @@ import Homepage from './components/views/Homepage/Homepage';
 import ProductList from './components/views/ProductList/ProductList';
 import ProductPage from './components/views/ProductPage/ProductPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
+import LoginPage from './components/views/LoginPage/LoginPage';
 
 class App extends Component {
   render() {
@@ -21,8 +22,9 @@ class App extends Component {
             <Switch>
               <Route exact path={'/'} component={Homepage} />
               <Route exact path={'/shop'} component={ProductList} />
-              <Route exact path={'/product'} component={ProductPage} />
+              <Route exact path={'/product/:id'} component={ProductPage} />
               <Route exact path={'/register'} component={RegisterPage} />
+              <Route exact path={'/login'} component={LoginPage} />
             </Switch>
           </MainLayout>
         </BrowserRouter>

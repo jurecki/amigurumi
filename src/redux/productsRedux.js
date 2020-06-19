@@ -1,6 +1,6 @@
 /* selectors */
 export const getNew = ({ products }) => products;
-
+export const getProduct = ({ products }, id) => products.find(product => product.id === id);
 
 // action name creator
 

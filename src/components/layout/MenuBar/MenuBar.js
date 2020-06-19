@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MenuBar.module.scss';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
+import { Link } from 'react-router-dom';
 
 const MenuBar = () => (
   <div className={styles.root}>
@@ -12,7 +13,7 @@ const MenuBar = () => (
         <div className={`col-auto ${styles.menu}`} >
           <ul>
             <li>
-              <a href='#' className={styles.active} >Home</a>
+              <Link to={`${process.env.PUBLIC_URL}/`} className={styles.active} >Home</Link>
             </li>
             <li>
               <a href='#'>Kategoria 1</a>

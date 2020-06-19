@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './CompanyClaim.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt, faStore, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const CompanyClaim = () => (
   <div className={styles.root}>
@@ -14,7 +15,9 @@ const CompanyClaim = () => (
           </p>
         </div>
         <div className={`col-6 col-md-3 text-md-center order-md-2 ${styles.logo}`}>
-          <FontAwesomeIcon className={styles.icon} icon={faStore} />
+          <Link to={`${process.env.PUBLIC_URL}/`}>
+            <FontAwesomeIcon className={styles.icon} icon={faStore} />
+          </Link>
         </div>
         <div className={`col text-right order-md-3 ${styles.cart}`}>
           <a href='#' className={styles.cartBox}>
@@ -26,7 +29,7 @@ const CompanyClaim = () => (
         </div>
       </div>
     </div>
-  </div>
+  </div >
 );
 
 export default CompanyClaim;

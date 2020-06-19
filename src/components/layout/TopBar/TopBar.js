@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './TopBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faUser, faLock, faBars } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const TopBar = () => (
   <div className={styles.root}>
@@ -34,14 +35,14 @@ const TopBar = () => (
         <div className={`col text-right ${styles.topRight}`}>
           <ul>
             <li>
-              <a href='#'>
+              <Link to={`${process.env.PUBLIC_URL}/login`}>
                 <FontAwesomeIcon className={styles.icon} icon={faUser} />Login
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#'>
+              <Link to={`${process.env.PUBLIC_URL}/register`}>
                 <FontAwesomeIcon className={styles.icon} icon={faLock} />Register
-              </a>
+              </Link>
             </li>
             <li>
               <a href='#'>
