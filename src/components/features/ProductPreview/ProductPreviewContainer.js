@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { getProduct } from '../../../redux/productsRedux';
+import { createActionAddToCart } from '../../../redux/cartRedux';
 import ProductPreview from './ProductPreview';
 
 const mapStateToProps = (state, props) => ({
@@ -8,5 +9,9 @@ const mapStateToProps = (state, props) => ({
 
 );
 
+const mapDispatchToProps = dispatch => ({
+  addToCart: product => dispatch(createActionAddToCart(product)),
+});
 
-export default connect(mapStateToProps)(ProductPreview);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPreview);

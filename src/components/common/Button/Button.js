@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.module.scss';
 
-const Button = ({ children, variant }) => {
+const Button = ({ children, variant, click }) => {
   const classes = [];
 
   if (variant) classes.push(styles[variant]);
   else classes.push('main');
 
   return (
-    <a href='#' className={classes.join('')}>
+    <a href='#' className={classes.join('')} onClick={click}>
       {children}
     </a>
   );
@@ -17,6 +17,7 @@ const Button = ({ children, variant }) => {
 
 Button.propTypes = {
   children: PropTypes.node,
+  click: PropTypes.node,
   className: PropTypes.string,
   variant: PropTypes.string,
 };

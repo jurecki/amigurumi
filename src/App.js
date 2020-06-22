@@ -12,6 +12,7 @@ import ProductList from './components/views/ProductList/ProductList';
 import ProductPage from './components/views/ProductPage/ProductPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
+import ShoppingCartPage from './components/views/ShoppingCartPage/ShoppingCartPageContainer';
 
 class App extends Component {
   render() {
@@ -20,11 +21,12 @@ class App extends Component {
         <BrowserRouter>
           <MainLayout>
             <Switch>
-              <Route exact path={'/'} component={Homepage} />
-              <Route exact path={'/shop'} component={ProductList} />
-              <Route exact path={'/product/:id'} component={ProductPage} />
-              <Route exact path={'/register'} component={RegisterPage} />
-              <Route exact path={'/login'} component={LoginPage} />
+              <Route exact={true} path={'/'} component={Homepage} />
+              <Route path={'/shop'} component={ProductList} />
+              <Route path={'/product/:id'} component={ProductPage} />
+              <Route path={'/register'} component={RegisterPage} />
+              <Route path={'/login'} component={LoginPage} />
+              <Route path={'/cart/:id?'} component={ShoppingCartPage} />
             </Switch>
           </MainLayout>
         </BrowserRouter>

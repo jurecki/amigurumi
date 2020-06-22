@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 
@@ -13,7 +14,7 @@ class ProductBox extends React.Component {
     return (
       <div className={styles.root} >
         <div className={styles.photo}>
-          <img src={product.image} alt={product.name}></img>
+          <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}><img src={product.image} alt={product.name}></img></Link>
         </div>
         <div className={styles.content}>
           <h5>{product.name}</h5>

@@ -13,6 +13,7 @@ const initialState = {
       category: 'wildAnimals',
       price: 99,
       image: 'https://image.shutterstock.com/image-photo/handmade-knitted-toy-amigurumi-penguin-600w-1405756010.jpg',
+      countInStock: 10,
     },
     {
       id: '2',
@@ -21,6 +22,7 @@ const initialState = {
       category: 'forestAnimals',
       price: 99,
       image: 'https://www.amigurumipatterns.net/images/amigurumi-The-sleepy-fox.jpeg',
+      countInStock: 10,
     },
     {
       id: '3',
@@ -29,6 +31,7 @@ const initialState = {
       category: 'forestAnimals',
       price: 99,
       image: 'https://www.amigurumipatterns.net/images/360-amigurumi-61Riley-the-Raccoon.jpeg',
+      countInStock: 10,
     },
     {
       id: '4',
@@ -37,6 +40,7 @@ const initialState = {
       category: 'pets',
       price: 99,
       image: 'https://4.bp.blogspot.com/-11tovc_PrJg/Wd4eLBi_qSI/AAAAAAAAAQ4/TSUwMIno2NwoJCwn332CkcyXcaEHnZfwQCLcBGAs/s1600/crochet-dog-amigurumi.jpg',
+      countInStock: 10,
     },
     {
       id: '5',
@@ -45,6 +49,7 @@ const initialState = {
       category: 'pets',
       price: 99,
       image: 'https://1.bp.blogspot.com/-JWb5umREJi0/Xr1cjuRNlmI/AAAAAAAACtw/jORhe-XSpyA1ZpZ19ZLP2uYL-TYaMNZdACLcBGAsYHQ/s1600/crochet-cat-amigurumi.jpg',
+      countInStock: 10,
     },
     {
       id: '6',
@@ -53,6 +58,7 @@ const initialState = {
       category: 'cartoons',
       price: 99,
       image: 'https://image.shutterstock.com/image-photo/christmas-peppa-pig-amigurumi-600w-1623832438.jpg',
+      countInStock: 10,
     },
     {
       id: '7',
@@ -61,6 +67,7 @@ const initialState = {
       category: 'cartoons',
       price: 99,
       image: 'https://havvadesigns.com/wp-content/uploads/blummy-ana-resim.jpg',
+      countInStock: 10,
     },
     {
       id: '8',
@@ -69,10 +76,11 @@ const initialState = {
       category: 'cartoons',
       price: 99,
       image: 'https://image.shutterstock.com/image-photo/crochet-amigurumi-toys-600w-1203607894.jpg',
+      countInStock: 10,
     },
   ],
   cart: {
-    products: [],
+    cartItems: [],
   },
   loading: {
     active: false,
