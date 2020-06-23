@@ -17,7 +17,7 @@ const Button = ({ children, variant, click }) => {
 
 Button.propTypes = {
   children: PropTypes.node,
-  click: PropTypes.node,
+  click: PropTypes.func,
   className: PropTypes.string,
   variant: PropTypes.string,
 };

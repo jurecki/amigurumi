@@ -1,44 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import styles from './ProductPreview.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
-import Button from '../../common/Button/Button';
-import { withRouter } from 'react-router-dom';
+import AddToCart from '../AddToCart/AddToCartContainer';
 
 class ProductPreview extends React.Component {
 
-  state = {
-    shoppingCartQtn: 1,
-  }
-
-
-  handleDecrease = (e) => {
-    e.preventDefault();
-    console.log('remove');
-    this.setState({
-      shoppingCartQtn: this.state.shoppingCartQtn - 1,
-    });
-  }
-
-  handleIncrease = (e) => {
-    e.preventDefault();
-    console.log('add');
-    this.setState({
-      shoppingCartQtn: this.state.shoppingCartQtn + 1,
-    });
-  }
-
-  handleAddToCart = (product) => {
-    console.log('thisprops', this.props.history.push('/cart'));
-    console.log('dodaj do koszyka', this.state.shoppingCartQtn, 'productID:', product);
-    this.props.addToCart(product);
-
-  }
-
-
   render() {
-    const { name, describe, image, price, countInStock } = this.props.product;
+    const { name, describe, image, price } = this.props.product;
     return (
       <div>
         <div className='container'>
@@ -52,7 +20,7 @@ class ProductPreview extends React.Component {
                   <h2> {name}</h2>
                   <hr />
                   <div className={styles.productPrice}>
-                    <span>Price: </span> {price * this.state.shoppingCartQtn} PLN
+                    <span>Price: </span> {price} PLN
                     <hr />
                   </div>
                   <div className={styles.productDescriptionShort}>
@@ -61,51 +29,43 @@ class ProductPreview extends React.Component {
                   <hr />
                   <div className={styles.productAction}>
                     <div className='row'>
-                      <div className={styles.shoppingQty}>
-                        <button disabled={this.state.shoppingCartQtn === 1 ? true : false} onClick={this.handleDecrease}>-</button>
-                        <span>{this.state.shoppingCartQtn}</span>
-                        <button disabled={this.state.shoppingCartQtn >= countInStock} onClick={this.handleIncrease}>+</button>
+                      <AddToCart product={this.props.product} btn='' counter='' />
+                    </div>
+                    <hr />
+                    <div className={styles.productAdditionalInfo}>
+                      <div className={styles.socialSharing}>
+                        <span>Share</span>
+                        <ul>
+                          <li>FB</li>
+                          <li>TW</li>
+                          <li>PINTEREST</li>
+                        </ul>
                       </div>
-                      <Button className={styles.options} variant='small' click={this.handleAddToCart.bind(this, this.props.product)}>
-                        <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-                      </Button>
                     </div>
                   </div>
-                  <hr />
-                  <div className={styles.productAdditionalInfo}>
-                    <div className={styles.socialSharing}>
-                      <span>Share</span>
-                      <ul>
-                        <li>FB</li>
-                        <li>TW</li>
-                        <li>PINTEREST</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className='col-12'>
-                  <div className={styles.moreInfoProduct}>
-                    <div className={styles.productDescription}>
-                      Opis Producktu
-                    </div>
-                    <div className={styles.productDetails}>
-                      Product details
+                  <div className='col-12'>
+                    <div className={styles.moreInfoProduct}>
+                      <div className={styles.productDescription}>
+                        Opis Producktu
+                      </div>
+                      <div className={styles.productDetails}>
+                        Product details
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div >
+        </div >
+      </div>
     );
   }
 }
 
 ProductPreview.propTypes = {
   product: PropTypes.object,
-  addToCart: PropTypes.func,
-  history: PropTypes.node,
+
 };
 
-export default withRouter(ProductPreview);
+export default ProductPreview;

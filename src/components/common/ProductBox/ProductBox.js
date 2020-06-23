@@ -5,12 +5,12 @@ import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
+import AddToCart from '../../features/AddToCart/AddToCartContainer';
 
 class ProductBox extends React.Component {
 
   render() {
     const { product } = this.props;
-    console.log(product);
     return (
       <div className={styles.root} >
         <div className={styles.photo}>
@@ -23,9 +23,9 @@ class ProductBox extends React.Component {
           <Button className={styles.priceBtn} noHover variant='small'>
             {product.price} PLN
           </Button>
-          <Button className={styles.options} variant='small'>
-            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-          </Button>
+          <div>
+            <AddToCart product={product} counter='hidden' btn='' />
+          </div>
         </div>
       </div >
     );
@@ -33,7 +33,7 @@ class ProductBox extends React.Component {
 }
 
 ProductBox.propTypes = {
-  product: PropTypes.array,
+  product: PropTypes.object,
 };
 
 export default ProductBox;

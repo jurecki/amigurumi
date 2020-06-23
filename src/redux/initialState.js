@@ -82,6 +82,7 @@ const initialState = {
   cart: {
     cartItems: [],
   },
+
   loading: {
     active: false,
     error: false,

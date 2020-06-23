@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ShoppingCartPage.module.scss';
 import { Link } from 'react-router-dom';
+import AddToCart from '../../features/AddToCart/AddToCartContainer';
 
 class ShoppingCartPage extends React.Component {
+
+  removeFromCart = (id) => {
+    console.log('remove', id);
+    this.props.removeFromCart(id);
+  }
+
   render() {
-    console.log(this.props.cart.cartItems.length);
+    console.log(this.props.cart.cartItems);
     const { cartItems } = this.props.cart;
     return (
       <div className='container'>
@@ -28,25 +35,20 @@ class ShoppingCartPage extends React.Component {
                     </div>
                     <div className={styles.cartName}>
                       <div>
-                        <Link to={'/product/' + item.product}>
+                        <Link to={'/product/' + item.id}>
                           {item.name}
                         </Link>
-
                       </div>
                       <div>
-                        Qty:
-                        {/* <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
-                          {[...Array(item.countInStock).keys()].map(x =>
-                            <option key={x + 1} value={x + 1}>{x + 1}</option>
-                          )}
-                        </select> */}
-                        {/* <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)} >
+
+                        Quantity: <AddToCart product={cartItems} btn='hidden' counter='' value={item.qty} />
+                        <button type="button" className="button" onClick={this.removeFromCart.bind(this, item.id)} >
                           Delete
-                    </button> */}
+                        </button>
                       </div>
                     </div>
                     <div className={styles.cartPrice}>
-                      ${item.price}
+                      ${item.price * item.qty}
                     </div>
                   </li>
                 )
@@ -57,7 +59,7 @@ class ShoppingCartPage extends React.Component {
           {cartItems.length !== 0 &&
             <div className={styles.cartAction}>
               <h3>
-                Total ({cartItems.length} products) : {cartItems.name} PLN
+                Total ({cartItems.length} products) : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
               </h3>
               <button className="button primary" disabled={cartItems.length === 0}>
                 Proceed to Checkout
@@ -71,7 +73,8 @@ class ShoppingCartPage extends React.Component {
 }
 
 ShoppingCartPage.propTypes = {
-  cart: PropTypes.array,
+  cart: PropTypes.object,
+  removeFromCart: PropTypes.func,
 };
 
 export default ShoppingCartPage;
