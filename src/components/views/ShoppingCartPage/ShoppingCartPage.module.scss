@@ -33,6 +33,7 @@
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom:.1rem #c0c0c0 solid;
+
     img {
       max-width: 10rem;
       max-height: 10rem;
@@ -43,6 +44,8 @@
 .cartImage{
   flex: 1 1;
   padding-right: 15px;
+  max-width: 10rem;
+  max-height: 10rem;
 }
 .cartName{
   flex: 8 1;

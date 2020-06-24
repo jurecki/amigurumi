@@ -13,9 +13,9 @@ import ProductPage from './components/views/ProductPage/ProductPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
 import ShoppingCartPage from './components/views/ShoppingCartPage/ShoppingCartPageContainer';
-import ShippingPage from './components/views/ShippingPage/ShippingPage';
-import PaymentPage from './components/views/PaymentPage/PaymentPage';
-
+import ShippingPage from './components/views/ShippingPage/ShippingPageContainer';
+import PaymentPage from './components/views/PaymentPage/PaymentPageContainer';
+import PlaceOrderPage from './components/views/PlaceOrderPage/PlaceOrderPageContainer';
 class App extends Component {
   render() {
     return (
@@ -31,6 +31,7 @@ class App extends Component {
               <Route path={'/cart/:id?'} component={ShoppingCartPage} />
               <Route path={'/shipping'} component={ShippingPage} />
               <Route path={'/payment'} component={PaymentPage} />
+              <Route path={'/placeorder'} component={PlaceOrderPage} />
             </Switch>
           </MainLayout>
         </BrowserRouter>

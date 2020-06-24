@@ -14,7 +14,7 @@ class ShippingPage extends React.Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    //dispatch saveOrderAdresses
+    this.props.saveShipping(this.state);
     this.props.history.push('/payment');
   }
 
@@ -75,6 +75,7 @@ ShippingPage.propTypes = {
   zip: PropTypes.string,
   country: PropTypes.string,
   history: PropTypes.object,
+  saveShipping: PropTypes.func,
 };
 
 export default ShippingPage;

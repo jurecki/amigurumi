@@ -15,7 +15,11 @@ class PaymentPage extends React.Component {
     this.setState({
       [name]: value,
     });
-    //dispatch savePaymentMethod
+  }
+
+  handleOnSubmit = (e) => {
+    e.preventDefault();
+    this.props.savePaymentMethod(this.state);
     this.props.history.push('/placeorder');
   }
 
@@ -29,7 +33,7 @@ class PaymentPage extends React.Component {
           <div className='row justify-content-center'>
             <h3>Payment method:</h3>
           </div>
-          <form onSubmit={this.handleOnChange} className='row justify-content-center '>
+          <form className='row justify-content-center' onSubmit={this.handleOnSubmit}>
             <div className="form-check col-md-12 ">
               <input
                 className='m-3 '
@@ -64,6 +68,7 @@ class PaymentPage extends React.Component {
 
 PaymentPage.propTypes = {
   history: PropTypes.object,
+  savePaymentMethod: PropTypes.func,
 };
 
 export default PaymentPage;

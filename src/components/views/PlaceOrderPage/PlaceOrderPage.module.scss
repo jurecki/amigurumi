@@ -1,0 +1,102 @@
+@import "../../../styles/settings.scss";
+.root {
+  margin: 20px;
+  display: flex;
+}
+
+.placeorder {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.placeorderInfo {
+  flex: 3 1 60rem;
+}
+.placeorderAction {
+  flex: 1 1 20rem;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+}
+.placeorderInfo > div {
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+  margin: 1rem;
+}
+.placeorderInfo > div:first-child {
+  margin-top: 0;
+}
+.placeorderAction > ul {
+  padding: 0;
+  list-style-type: none;
+}
+.placeorderAction > ul > li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.placeorderAction > ul > li:last-child {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c04000;
+}
+.placeorderActionsPayment > div {
+  width: 100%;
+}
+
+.cart{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
+  align-items: flex-start;
+}
+.cartList{
+  flex: 3;
+}
+.cartAction{
+  flex:1 1 20rem;
+  background-color: #f0f0f0;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+.cartListContainer {
+  padding: 0;
+  list-style-type: none;
+  padding: 1rem;
+
+  li:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom:.1rem #c0c0c0 solid;
+    img {
+      max-width: 10rem;
+      max-height: 10rem;
+    }
+  }
+}
+
+.cartImage{
+  flex: 1 1;
+  padding-right: 15px;
+}
+.cartName{
+  flex: 8 1;
+}
+.cartPrice{
+  flex: 1 1;
+  font-size: 2.5rem;
+  text-align: right;
+}
