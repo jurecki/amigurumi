@@ -27,7 +27,8 @@ class AddToCart extends React.Component {
     });
   }
 
-  handleAddToCart = (product) => {
+  handleAddToCart = (e, product) => {
+    e.preventDefault();
     this.props.addToCart(product, this.state.shoppingCartQtn);
     this.props.history.push('/cart');
 
@@ -52,7 +53,7 @@ class AddToCart extends React.Component {
             <button disabled={this.state.shoppingCartQtn >= countInStock} onClick={this.handleIncrease}>+</button>
           </div>
           <div className={btn.split(' ').map((name) => ' ' + (styles[name] || name)).join('')}>
-            <Button className={styles.options} variant='small' click={this.handleAddToCart.bind(this, this.props.product)}>
+            <Button className={styles.options} variant='small' click={(e) => this.handleAddToCart(e, this.props.product)}>
               <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
             </Button>
           </div>

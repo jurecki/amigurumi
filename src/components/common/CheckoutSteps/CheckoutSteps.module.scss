@@ -1,0 +1,21 @@
+@import "../../../styles/settings.scss";
+
+.chekoutSteps {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 40rem;
+  margin: 2rem auto 3rem auto;
+
+  div {
+    border-bottom: 0.3rem #c0c0c0 solid;
+    color: #c0c0c0;
+    flex: 1 1;
+    padding-bottom: 1rem;
+  }
+
+  .active {
+    border-bottom: 0.3rem $text-color-prime solid;
+    color: $text-color-prime;
+  }
+}

@@ -13,6 +13,8 @@ import ProductPage from './components/views/ProductPage/ProductPage';
 import RegisterPage from './components/views/RegisterPage/RegisterPage';
 import LoginPage from './components/views/LoginPage/LoginPage';
 import ShoppingCartPage from './components/views/ShoppingCartPage/ShoppingCartPageContainer';
+import ShippingPage from './components/views/ShippingPage/ShippingPage';
+import PaymentPage from './components/views/PaymentPage/PaymentPage';
 
 class App extends Component {
   render() {
@@ -27,6 +29,8 @@ class App extends Component {
               <Route path={'/register'} component={RegisterPage} />
               <Route path={'/login'} component={LoginPage} />
               <Route path={'/cart/:id?'} component={ShoppingCartPage} />
+              <Route path={'/shipping'} component={ShippingPage} />
+              <Route path={'/payment'} component={PaymentPage} />
             </Switch>
           </MainLayout>
         </BrowserRouter>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ShoppingCartPage.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import AddToCart from '../../features/AddToCart/AddToCartContainer';
 
 class ShoppingCartPage extends React.Component {
@@ -9,6 +9,10 @@ class ShoppingCartPage extends React.Component {
   removeFromCart = (id) => {
     console.log('remove', id);
     this.props.removeFromCart(id);
+  }
+
+  checkoutHandler = () => {
+    this.props.history.push('/shipping');
   }
 
   render() {
@@ -61,7 +65,7 @@ class ShoppingCartPage extends React.Component {
               <h3>
                 Total ({cartItems.length} products) : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
               </h3>
-              <button className="button primary" disabled={cartItems.length === 0}>
+              <button className="button primary" disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
                 Proceed to Checkout
               </button>
             </div>
@@ -75,6 +79,7 @@ class ShoppingCartPage extends React.Component {
 ShoppingCartPage.propTypes = {
   cart: PropTypes.object,
   removeFromCart: PropTypes.func,
+  history: PropTypes.object,
 };
 
-export default ShoppingCartPage;
+export default withRouter(ShoppingCartPage);
