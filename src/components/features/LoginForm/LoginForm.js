@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import propTypes from 'prop-types';
+
 
 class LoginForm extends React.Component {
 
@@ -21,11 +23,10 @@ class LoginForm extends React.Component {
 
   handleOnSubmit = (e) => {
     e.preventDefault();
-
     //check if the user is register
+    console.log('userDetail', this.props.user);
 
-    //console.log('userDetail', this.props.user);
-
+    this.props.history.push('/profile/' + this.props.user.id);
   }
 
   render() {
@@ -51,4 +52,9 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+  user: propTypes.object,
+  history: propTypes.object,
+};
+
+export default withRouter(LoginForm);

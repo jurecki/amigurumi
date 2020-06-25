@@ -30,7 +30,7 @@ class ShippingPage extends React.Component {
   }
 
   render() {
-    const { firstName, lastName, address, city, zip, country } = this.state;
+    const { address, city, zip, country } = this.state;
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -39,16 +39,6 @@ class ShippingPage extends React.Component {
           </div>
           <div className='row'>
             <form onSubmit={this.handleOnSubmit} className='col-12'>
-              <div className="form-row">
-                <div className="form-group col-md-6">
-                  <label htmlFor="firstName">First Name</label>
-                  <input type="text" className="form-control" id="firstName" placeholder="First Name" name='firstName' value={firstName} onChange={this.handleOnChange} />
-                </div>
-                <div className="form-group col-md-6">
-                  <label htmlFor="lastName">Last Name</label>
-                  <input type="text" className="form-control" id="lastName" placeholder="Last Name" name='lastName' value={lastName} onChange={this.handleOnChange} />
-                </div>
-              </div>
               <div className="form-group">
                 <label htmlFor="inputAddress">Address</label>
                 <input type="text" className="form-control" id="inputAddress" placeholder="Wroclawska 13/3" name='address' value={address} onChange={this.handleOnChange} />

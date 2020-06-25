@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 /* selectors */
-export const getUserById = ({ users }, email) => users.filter(user => user.email === email);
+export const getUserById = ({ users }, email) => users.filter(user => user.email === 'jurecki.pawel@gmail.com');
 
 // action name creator
 const reducerName = 'users';

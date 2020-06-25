@@ -88,9 +88,9 @@ const initialState = {
   users: [
     {
       id: 'ldad1',
-      firstName: 'test',
-      lastName: 'test',
-      email: 'test@test.pl',
+      firstName: 'Paweł',
+      lastName: 'Jurecki',
+      email: 'jurecki.pawel@gmail.com',
       password: '123',
     },
   ],

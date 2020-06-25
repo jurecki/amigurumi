@@ -3,10 +3,9 @@ import { getUserById } from '../../../redux/usersRedux';
 import LoginForm from './LoginForm';
 
 const mapStateToProps = (state, props) => (
-  console.log('props', props)
-  //   {
-  //   user: getUserById(state, props.email),
-  // }
+  {
+    user: getUserById(state),
+  }
 );
 
 const mapDispatchToProps = dispatch => ({
