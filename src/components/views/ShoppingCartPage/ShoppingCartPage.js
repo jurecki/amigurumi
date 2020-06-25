@@ -46,6 +46,7 @@ class ShoppingCartPage extends React.Component {
                       <div>
 
                         Quantity: <AddToCart product={cartItems} btn='hidden' counter='' value={item.qty} />
+                        {console.log('ilosc', item.qty)}
                         <button type="button" className="button" onClick={this.removeFromCart.bind(this, item.id)} >
                           Delete
                         </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropTypes } from 'prop-types';
+import propTypes from 'prop-types';
 import styles from './ProductPreview.module.scss';
 import AddToCart from '../AddToCart/AddToCartContainer';
 
@@ -64,7 +64,7 @@ class ProductPreview extends React.Component {
 }
 
 ProductPreview.propTypes = {
-  product: PropTypes.object,
+  product: propTypes.object,
 
 };
 

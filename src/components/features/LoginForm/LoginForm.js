@@ -4,16 +4,34 @@ import { Link } from 'react-router-dom';
 class LoginForm extends React.Component {
 
   state = {
-    user: {
-      email: '',
-      password: '',
-    },
+    email: '',
+    password: '',
+  }
+
+  handleOnChange = (e) => {
+    e.preventDefault();
+
+    const value = e.target.value;
+    const name = e.target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    //check if the user is register
+
+    //console.log('userDetail', this.props.user);
+
   }
 
   render() {
-    const { email, password } = this.state.user;
+    const { email, password } = this.state;
     return (
-      <form onSubmit={this.handleOnSubmit} >
+      < form onSubmit={this.handleOnSubmit} >
         <div className="form-group col-md-6">
           <label htmlFor="inputEmail4">Email</label>
           <input type="email" className="form-control" id="inputEmail4" placeholder="Email" name='email' value={email} onChange={this.handleOnChange} />
@@ -28,7 +46,7 @@ class LoginForm extends React.Component {
         <div>
           <Link to={`${process.env.PUBLIC_URL}/register`}>No account? Create one here ?</Link>
         </div>
-      </form>
+      </form >
     );
   }
 }

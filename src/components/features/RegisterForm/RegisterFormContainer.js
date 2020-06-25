@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addUserRequest } from '../../../redux/usersRedux';
+import { addUserRegister } from '../../../redux/usersRedux';
 import RegisterForm from './RegisterForm';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addUser: data => dispatch(addUserRequest(data)),
+  addUser: data => dispatch(addUserRegister(data)),
 });
 
 

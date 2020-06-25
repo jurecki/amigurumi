@@ -9,7 +9,7 @@ class ShippingPage extends React.Component {
     address: '',
     city: '',
     zip: '',
-    cuntry: '',
+    country: '',
   }
 
   handleOnSubmit = (e) => {
@@ -18,8 +18,19 @@ class ShippingPage extends React.Component {
     this.props.history.push('/payment');
   }
 
+  handleOnChange = (e) => {
+    e.preventDefault();
+
+    const value = e.target.value;
+    const name = e.target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
-    const { firstName, lastName, address, city, zip, country } = this.props;
+    const { firstName, lastName, address, city, zip, country } = this.state;
     return (
       <div className={styles.root}>
         <div className='container'>

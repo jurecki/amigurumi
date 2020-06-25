@@ -3,12 +3,18 @@ import styles from './PlaceOrderPage.module.scss';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../../common/CheckoutSteps/CheckoutSteps';
+import shortid from 'shortid';
 
 class PlaceOrderPage extends React.Component {
 
-  handleOrder = (e) => {
+  handleOrder = (e, shippingPrice, totalPrice) => {
     e.preventDefault();
-    console.log('wyślij na serwer');
+    const { cart } = this.props;
+    const { cartItems } = this.props.cart;
+    const id = shortid.generate();
+
+    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, id);
+    this.props.history.push('/order/' + id);
   }
 
   render() {
@@ -17,8 +23,9 @@ class PlaceOrderPage extends React.Component {
 
     const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const shippingPrice = itemsPrice > 100 ? 0 : 10;
-    const taxPrice = 0.15 * itemsPrice;
+    const taxPrice = 0.19 * itemsPrice;
     const totalPrice = itemsPrice + shippingPrice + taxPrice;
+
 
     return (
       <div className={styles.root}>
@@ -44,7 +51,7 @@ class PlaceOrderPage extends React.Component {
                 </div>
               </div>
               <div>
-                <ul className={styles.CartListContainer}>
+                <ul className={styles.cartListContainer}>
                   <li>
                     <h3>
                       Shopping Cart
@@ -76,7 +83,7 @@ class PlaceOrderPage extends React.Component {
                             </div>
                           </div>
                           <div className={styles.cartPrice}>
-                            ${item.price}
+                            ${item.price * item.qty}
                           </div>
                         </li>
                       )
@@ -88,9 +95,6 @@ class PlaceOrderPage extends React.Component {
             </div>
             <div className={styles.placeorderAction}>
               <ul>
-                <li>
-                  <button className="button primary full-width" onClick={this.handleOrder} >Place Order</button>
-                </li>
                 <li>
                   <h3>Order Summary</h3>
                 </li>
@@ -110,6 +114,9 @@ class PlaceOrderPage extends React.Component {
                   <div>Order Total</div>
                   <div>${totalPrice}</div>
                 </li>
+                <li>
+                  <button className="button primary full-width" onClick={(e) => this.handleOrder(e, shippingPrice, totalPrice)} >Place Order</button>
+                </li>
               </ul>
             </div>
           </div>
@@ -122,6 +129,8 @@ class PlaceOrderPage extends React.Component {
 
 PlaceOrderPage.propTypes = {
   cart: propTypes.object,
+  createOrder: propTypes.func,
+  history: propTypes.object,
 };
 
 export default PlaceOrderPage;

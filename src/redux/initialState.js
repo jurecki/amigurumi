@@ -81,7 +81,19 @@ const initialState = {
   ],
   cart: {
     cartItems: [],
+    shipping: {},
+    payment: {},
   },
+
+  users: [
+    {
+      id: 'ldad1',
+      firstName: 'test',
+      lastName: 'test',
+      email: 'test@test.pl',
+      password: '123',
+    },
+  ],
 
   loading: {
     active: false,

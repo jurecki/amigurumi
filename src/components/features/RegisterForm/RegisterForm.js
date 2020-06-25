@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 class RegisterForm extends React.Component {
 
@@ -9,9 +10,6 @@ class RegisterForm extends React.Component {
       lastName: '',
       email: '',
       password: '',
-      address: '',
-      city: '',
-      zip: '',
     },
   }
 
@@ -38,24 +36,20 @@ class RegisterForm extends React.Component {
     e.preventDefault();
 
     this.props.addUser(this.state.users);
-
-    alert('User has been added');
-
     this.setState({
       users: {
         firstName: '',
         lastName: '',
         email: '',
         password: '',
-        address: '',
-        city: '',
-        zip: '',
       },
     });
+
+    this.props.history.push('/login');
   }
 
   render() {
-    const { firstName, lastName, email, password, address, city, zip } = this.state.users;
+    const { firstName, lastName, email, password } = this.state.users;
     return (
       <form onSubmit={this.handleOnSubmit} >
         <div className="form-row">
@@ -78,26 +72,17 @@ class RegisterForm extends React.Component {
             <input type="password" className="form-control" id="inputPassword4" placeholder="Password" name='password' value={password} onChange={this.handleOnChange} />
           </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="inputAddress">Address</label>
-          <input type="text" className="form-control" id="inputAddress" placeholder="Wroclawska 13/3" name='address' value={address} onChange={this.handleOnChange} />
-        </div>
-        <div className="form-row">
-          <div className="form-group col-md-4">
-            <label htmlFor="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity" placeholder="Wroclaw"  name='city' value={city} onChange={this.handleOnChange} />
-          </div>
-          <div className="form-group col-md-2">
-            <label htmlFor="inputZip">Zip</label>
-            <input type="text" className="form-control" id="inputZip" placeholder="50-213" name='zip' value={zip} onChange={this.handleOnChange} />
-          </div>
-        </div>
+
         <div className='form-row justify-content-center mt-3'>
-          <button type="submit" className="btn btn-secondary ">Sign in</button>
+          <button type="submit" className="btn btn-secondary ">Register</button>
         </div>
       </form>
     );
   }
 }
 
-export default RegisterForm;
+RegisterForm.propTypes = {
+  history: PropTypes.object,
+};
+
+export default withRouter(RegisterForm);

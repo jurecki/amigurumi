@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LoginPage.module.scss';
-import LoginForm from '../../features/LoginForm/LoginForm';
+import LoginForm from '../../features/LoginForm/LoginFormContainer';
 
 const LoginPage = () => (
   <div className={styles.root}>
