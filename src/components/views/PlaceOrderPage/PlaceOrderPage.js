@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PlaceOrderPage.module.scss';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../../common/CheckoutSteps/CheckoutSteps';
 import shortid from 'shortid';
@@ -9,11 +9,11 @@ class PlaceOrderPage extends React.Component {
 
   handleOrder = (e, shippingPrice, totalPrice) => {
     e.preventDefault();
-    const { cart } = this.props;
+    const { cart, userLogin } = this.props;
     const { cartItems } = this.props.cart;
     const id = shortid.generate();
 
-    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, id);
+    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, id, userLogin.id);
     this.props.history.push('/order/' + id);
   }
 
@@ -128,9 +128,10 @@ class PlaceOrderPage extends React.Component {
 }
 
 PlaceOrderPage.propTypes = {
-  cart: propTypes.object,
-  createOrder: propTypes.func,
-  history: propTypes.object,
+  cart: PropTypes.object,
+  createOrder: PropTypes.func,
+  history: PropTypes.object,
+  userLogin: PropTypes.object,
 };
 
 export default PlaceOrderPage;

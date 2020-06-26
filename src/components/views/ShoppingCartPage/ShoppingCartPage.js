@@ -12,7 +12,10 @@ class ShoppingCartPage extends React.Component {
   }
 
   checkoutHandler = () => {
-    this.props.history.push('/shipping');
+    console.log('userLogin', this.props.userLogin);
+    if (this.props.userLogin === undefined) {
+      this.props.history.push('/login');
+    } else this.props.history.push('/shipping');
   }
 
   render() {
@@ -81,6 +84,7 @@ ShoppingCartPage.propTypes = {
   cart: PropTypes.object,
   removeFromCart: PropTypes.func,
   history: PropTypes.object,
+  userLogin: PropTypes.object,
 };
 
 export default withRouter(ShoppingCartPage);

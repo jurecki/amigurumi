@@ -1,6 +1,6 @@
 /* selectors */
-export const getOrderById = ({ order }, id) => order.filter(order => order.id === id);
-export const getOrderByUser = ({order}) => order;
+export const getOrderById = ({ order }, id) => order.find(order => order.id === id);
+export const getOrderByUser = ({ order }, id) => order.filter(order => order.idUser === id);
 
 // action name creator
 const reducerName = 'order';
@@ -10,7 +10,7 @@ const createActionName = name => `app/${reducerName}/${name}`;
 export const CREATE_ORDER = createActionName('CREATE_ORDER');
 
 // action creators
-export const createActionCreateOrder = (payload, shipping, payment, shippingPrice, totalPrice, id) => ({ payload: { id, orderItem: payload, shipping: shipping, payment: payment, shippingPrice, totalPrice }, type: CREATE_ORDER });
+export const createActionCreateOrder = (payload, shipping, payment, shippingPrice, totalPrice, id, idUser) => ({ payload: { id, orderItem: payload, shipping: shipping, payment: payment, idUser, shippingPrice, totalPrice }, type: CREATE_ORDER });
 
 
 /* reducer */

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 class LoginForm extends React.Component {
@@ -24,11 +24,18 @@ class LoginForm extends React.Component {
   handleOnSubmit = (e) => {
     e.preventDefault();
     //check if the user is register
-    console.log('AllUser', this.props.user);
-    const loginUser = this.props.user.userInfo.find( user => user.email === this.state.email && user.password === this.state.password);
-    console.log('loginUser', loginUser);
-    // this.props.userLogin(this.props.user[0]);
-    this.props.history.push('/profile/' + loginUser.id);
+    const loginUser = this.props.user.userInfo.find(user => user.email === this.state.email && user.password === this.state.password);
+    this.props.userLogin(loginUser);
+
+    if (this.props.cart.cartItems.length === 0) {
+      console.log('koszyk', this.props.cart.cartItems.length);
+      this.props.history.push('/profile/' + loginUser.id);
+    } else {
+      this.props.history.push('/shipping');
+    }
+
+
+
   }
 
   render() {
@@ -55,9 +62,10 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  user: propTypes.array,
-  history: propTypes.object,
-  userLogin: propTypes.func,
+  user: PropTypes.object,
+  history: PropTypes.object,
+  userLogin: PropTypes.func,
+  cart: PropTypes.object,
 };
 
 export default withRouter(LoginForm);

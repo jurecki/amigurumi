@@ -7,7 +7,7 @@ class OrderPage extends React.Component {
 
 
   render() {
-    const { shipping, isDelivered, deliveredAt, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order[0];
+    const { shipping, isDelivered, deliveredAt, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order;
     return (
       <div className={styles.root}>
         <div className='container'>

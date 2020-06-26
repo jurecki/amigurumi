@@ -3,7 +3,7 @@ import styles from './TopBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faUser, faLock, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const TopBar = (props) => (
   <div className={styles.root}>
@@ -66,7 +66,7 @@ const TopBar = (props) => (
 );
 
 TopBar.propTypes = {
-  userLogin: propTypes.node,
+  userLogin: PropTypes.object,
 };
 
 export default TopBar;

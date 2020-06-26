@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProfilePage.module.scss';
 import propTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ProfilePage extends React.Component {
 
@@ -15,15 +15,16 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const {userInfo} = this.props;
-    const {orders} = this.props;
+    const { userInfo } = this.props;
+    const { orders } = this.props;
+    console.log('zamowienia', orders);
     return (
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
             <div className={styles.profileInfo}>
               <div className="form">
-                UserProfle: {userInfo[0].firstName} {userInfo[0].lastName}
+                Hello: {userInfo[0].firstName} {userInfo[0].lastName}
 
                 {/* <form onSubmit={this.handleOnSubmit} >
                   <ul className="form-container">
@@ -74,15 +75,15 @@ class ProfilePage extends React.Component {
                 </thead>
                 <tbody>
 
-                  {/* {orders.orderItem.map(order => <tr key={order._id}>
-                    <td>{order._id}</td>
-                    <td>{order.createdAt}</td>
+                  {orders.map(order => <tr key={order.id}>
+                    <td>{order.id}</td>
+                    <td>order.createdAt</td>
                     <td>{order.totalPrice}</td>
-                    <td>{order.isPaid}</td>
+                    <td>order.isPaid</td>
                     <td>
-                      <Link to={"/order/" + order._id}>DETAILS</Link>
+                      <Link to={'/order/' + order.id}>DETAILS</Link>
                     </td>
-                  </tr>)} */}
+                  </tr>)}
 
                 </tbody>
               </table>
@@ -95,8 +96,8 @@ class ProfilePage extends React.Component {
 }
 
 ProfilePage.propTypes = {
-  userInfo: propTypes.node,
-  orders: propTypes.node,
+  userInfo: propTypes.object,
+  orders: propTypes.array,
 };
 
 
