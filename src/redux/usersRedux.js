@@ -1,6 +1,7 @@
 import shortid from 'shortid';
 /* selectors */
-export const getUserById = ({ users }, email) => users.filter(user => user.email === 'jurecki.pawel@gmail.com');
+export const getAllUser = ({ users }) => users;
+export const getUserById = ({users}, id) => users.userInfo.filter(user => user.id === id);
 
 // action name creator
 const reducerName = 'users';
@@ -16,7 +17,10 @@ export const addUserRegister = payload => ({ payload: { id: shortid.generate(), 
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_USER:
-      return [...statePart, action.payload];
+      return {
+        ...statePart,
+        userInfo: [...statePart.userInfo, action.payload],
+      };
     default:
       return statePart;
   }

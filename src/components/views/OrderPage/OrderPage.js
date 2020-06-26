@@ -7,11 +7,9 @@ class OrderPage extends React.Component {
 
 
   render() {
-    const { orderDetails } = this.props.order;
+    const { shipping, isDelivered, deliveredAt, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order[0];
     return (
       <div className={styles.root}>
-        {console.log('order', this.props.order)}
-
         <div className='container'>
           <div className={`row ${styles.placeorder}`}>
             <div className={styles.placeorderInfo}>
@@ -20,20 +18,20 @@ class OrderPage extends React.Component {
                   Shipping
                 </h3>
                 <div>
-                  {orderDetails.shipping.address}, {orderDetails.shipping.city},
-                  {orderDetails.shipping.postalCode}, {orderDetails.shipping.country},
+                  {shipping.address}, {shipping.city},
+                  {shipping.postalCode}, {shipping.country},
                 </div>
                 <div>
-                  {orderDetails.isDelivered ? 'Delivered at ' + orderDetails.deliveredAt : 'Not Delivered.'}
+                  {isDelivered ? 'Delivered at ' + deliveredAt : 'Not Delivered.'}
                 </div>
               </div>
               <div>
                 <h3>Payment</h3>
                 <div>
-                  Payment Method: {orderDetails.payment.paymentMethod}
+                  {/* Payment Method: {payment.paymentMethod} */}
                 </div>
                 <div>
-                  {orderDetails.isPaid ? 'Paid at ' + orderDetails.paidAt : 'Not Paid.'}
+                  {isPaid ? 'Paid at ' + paidAt : 'Not Paid.'}
                 </div>
               </div>
               <div>
@@ -47,7 +45,7 @@ class OrderPage extends React.Component {
                     </div>
                   </li>
                   {
-                    orderDetails.orderItem.map(item =>
+                    orderItem.map(item =>
                       <li key={item.id}>
                         <div className={styles.cartImages}>
                           <img src={item.image} alt='product' />
@@ -82,11 +80,11 @@ class OrderPage extends React.Component {
 
                 <li>
                   <div>Shipping</div>
-                  <div>${orderDetails.shippingPrice}</div>
+                  <div>${shippingPrice}</div>
                 </li>
                 <li>
                   <div>Order Total</div>
-                  <div>${orderDetails.totalPrice}</div>
+                  <div>${totalPrice}</div>
                 </li>
               </ul>
             </div>

@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from './ProductBox.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';

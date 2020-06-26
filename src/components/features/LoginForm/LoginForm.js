@@ -24,9 +24,11 @@ class LoginForm extends React.Component {
   handleOnSubmit = (e) => {
     e.preventDefault();
     //check if the user is register
-    console.log('userDetail', this.props.user);
-
-    this.props.history.push('/profile/' + this.props.user.id);
+    console.log('AllUser', this.props.user);
+    const loginUser = this.props.user.userInfo.find( user => user.email === this.state.email && user.password === this.state.password);
+    console.log('loginUser', loginUser);
+    // this.props.userLogin(this.props.user[0]);
+    this.props.history.push('/profile/' + loginUser.id);
   }
 
   render() {
@@ -53,8 +55,9 @@ class LoginForm extends React.Component {
 }
 
 LoginForm.propTypes = {
-  user: propTypes.object,
+  user: propTypes.array,
   history: propTypes.object,
+  userLogin: propTypes.func,
 };
 
 export default withRouter(LoginForm);

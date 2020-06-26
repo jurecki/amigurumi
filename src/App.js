@@ -17,6 +17,8 @@ import ShippingPage from './components/views/ShippingPage/ShippingPageContainer'
 import PaymentPage from './components/views/PaymentPage/PaymentPageContainer';
 import PlaceOrderPage from './components/views/PlaceOrderPage/PlaceOrderPageContainer';
 import OrderPage from './components/views/OrderPage/OrderPageContainer';
+import ProfilePage from './components/views/ProfilePage/ProfilePageContainer';
+
 
 class App extends Component {
   render() {
@@ -35,6 +37,7 @@ class App extends Component {
               <Route path={'/payment'} component={PaymentPage} />
               <Route path={'/placeorder'} component={PlaceOrderPage} />
               <Route path={'/order/:id'} component={OrderPage} />
+              <Route path={'/profile/:id'} component={ProfilePage} />
             </Switch>
           </MainLayout>
         </BrowserRouter>

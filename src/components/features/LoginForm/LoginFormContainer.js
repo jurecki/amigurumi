@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
-import { getUserById } from '../../../redux/usersRedux';
+import { getAllUser } from '../../../redux/usersRedux';
+import {createActionNameLoginUser} from '../../../redux/userLoginRedux';
 import LoginForm from './LoginForm';
 
 const mapStateToProps = (state, props) => (
   {
-    user: getUserById(state),
+    user: getAllUser(state),
   }
 );
 
 const mapDispatchToProps = dispatch => ({
-
+  userLogin: user => dispatch((createActionNameLoginUser(user))),
 });
 
 

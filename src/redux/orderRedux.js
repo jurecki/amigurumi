@@ -1,6 +1,6 @@
 /* selectors */
-export const getOrderById = ({ order }) => order;
-
+export const getOrderById = ({ order }, id) => order.filter(order => order.id === id);
+export const getOrderByUser = ({order}) => order;
 
 // action name creator
 const reducerName = 'order';
@@ -17,9 +17,10 @@ export const createActionCreateOrder = (payload, shipping, payment, shippingPric
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case CREATE_ORDER:
-      return {
-        orderDetails: action.payload,
-      };
+      return [
+        ...statePart, action.payload,
+      ];
+
     default:
       return statePart;
   }
