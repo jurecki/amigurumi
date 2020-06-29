@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { Switch, Route } from 'react-router-dom';
+
 
 import './styles/bootstrap.scss';
 import './styles/global.scss';
@@ -21,28 +20,30 @@ import ProfilePage from './components/views/ProfilePage/ProfilePageContainer';
 
 
 class App extends Component {
+
+  componentDidMount() {
+    const { loadCategories, loadProducts, } = this.props;
+    loadCategories();
+    loadProducts();
+  }
+
   render() {
     return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <MainLayout>
-            <Switch>
-              <Route exact={true} path={'/'} component={Homepage} />
-              <Route path={'/shop'} component={ProductList} />
-              <Route path={'/product/:id'} component={ProductPage} />
-              <Route path={'/register'} component={RegisterPage} />
-              <Route path={'/login'} component={LoginPage} />
-              <Route path={'/cart/:id?'} component={ShoppingCartPage} />
-              <Route path={'/shipping'} component={ShippingPage} />
-              <Route path={'/payment'} component={PaymentPage} />
-              <Route path={'/placeorder'} component={PlaceOrderPage} />
-              <Route path={'/order/:id'} component={OrderPage} />
-              <Route path={'/profile/:id'} component={ProfilePage} />
-            </Switch>
-          </MainLayout>
-        </BrowserRouter>
-      </Provider>
-
+      <MainLayout>
+        <Switch>
+          <Route exact={true} path={'/'} component={Homepage} />
+          <Route path={'/shop'} component={ProductList} />
+          <Route path={'/product/:id'} component={ProductPage} />
+          <Route path={'/register'} component={RegisterPage} />
+          <Route path={'/login'} component={LoginPage} />
+          <Route path={'/cart/:id?'} component={ShoppingCartPage} />
+          <Route path={'/shipping'} component={ShippingPage} />
+          <Route path={'/payment'} component={PaymentPage} />
+          <Route path={'/placeorder'} component={PlaceOrderPage} />
+          <Route path={'/order/:id'} component={OrderPage} />
+          <Route path={'/profile/:id'} component={ProfilePage} />
+        </Switch>
+      </MainLayout>
     );
   }
 }

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import NewProducts from './NewProducts';
 import { getAll } from '../../../redux/categoriesRedux.js';
-import { getNew } from '../../../redux/productsRedux.js';
+import { getProducts } from '../../../redux/productsRedux.js';
 
 
 const mapStateToProps = state => ({
   categories: getAll(state),
-  products: getNew(state),
+  products: getProducts(state),
 });
 
 // const mapDispatchToProps = dispatch => ({

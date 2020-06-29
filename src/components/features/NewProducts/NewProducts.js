@@ -7,7 +7,9 @@ class NewProducts extends React.Component {
 
   render() {
     const { products } = this.props;
+
     return (
+
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
@@ -15,7 +17,18 @@ class NewProducts extends React.Component {
               <h3>New Products</h3>
             </div>
             <div className='row'>
-              {products.map(product => <div key={product.id} className='col-12 col-lg-3'> <ProductBox product={product} /> </div>)}
+              {console.log('baza', products)}
+              {/* if products don't load show spinner */}
+              {products === undefined
+                ?
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+                :
+                products.map(product => <div key={product.id} className='col-12 col-lg-3'> <ProductBox product={product} /> </div>)
+              }
             </div>
           </div>
         </div>

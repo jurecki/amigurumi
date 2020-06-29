@@ -1,11 +1,14 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import initialState from './initialState';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import categoriesRedux from './categoriesRedux';
 import productsRedux from './productsRedux';
 import usersRedux from './usersRedux';
 import cartRedux from './cartRedux';
 import orderRedux from './orderRedux';
 import userLoginRedux from './userLoginRedux';
+
 //define reducer
 const reducers = {
   categories: categoriesRedux,
@@ -29,7 +32,9 @@ const combinedReducers = combineReducers(reducers);
 const store = createStore(
   combinedReducers,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(
+    applyMiddleware(thunk)
+  )
 );
 
 export default store;

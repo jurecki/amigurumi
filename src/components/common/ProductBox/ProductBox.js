@@ -12,7 +12,7 @@ class ProductBox extends React.Component {
     return (
       <div className={styles.root} >
         <div className={styles.photo}>
-          <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}><img src={product.image} alt={product.name}></img></Link>
+          <Link to={`${process.env.PUBLIC_URL}/product/${product._id}`}><img src={product.image} alt={product.name}></img></Link>
         </div>
         <div className={styles.content}>
           <h5>{product.name}</h5>
