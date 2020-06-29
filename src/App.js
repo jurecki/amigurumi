@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
+import propTypes from 'prop-types';
 
 import './styles/bootstrap.scss';
 import './styles/global.scss';
@@ -22,7 +22,7 @@ import ProfilePage from './components/views/ProfilePage/ProfilePageContainer';
 class App extends Component {
 
   componentDidMount() {
-    const { loadCategories, loadProducts, } = this.props;
+    const { loadCategories, loadProducts } = this.props;
     loadCategories();
     loadProducts();
   }
@@ -47,5 +47,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  loadCategories: propTypes.func,
+  loadProducts: propTypes.func,
+};
 
 export default App;
