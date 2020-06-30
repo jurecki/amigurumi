@@ -10,11 +10,32 @@ export const ADD_TO_CART = createActionName('ADD_TO_CART');
 export const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 export const SAVE_SHIPPING = createActionName('SAVE_SHIPPING');
 export const SAVE_PAYMENT = createActionName('SAVE_PAYMENT');
+
 // action creators
 export const createActionAddToCart = (payload, qty) => ({ payload: { ...payload, qty: qty }, type: ADD_TO_CART });
 export const createActionRemoveFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 export const createActionSaveShipping = payload => ({ payload, type: SAVE_SHIPPING });
 export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT });
+
+/* thunk creators */
+
+export const addCartToStorage = (product, qty) => {
+  return async dispatch => {
+
+    console.log('jestem w redux/thunk dodam tutaj coś toStorage');
+    //get content from the storag
+    const cart = [];
+
+    cart.push('lalal');
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+
+    dispatch(createActionAddToCart(product, qty));
+  };
+
+};
+
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
