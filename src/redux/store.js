@@ -15,7 +15,7 @@ const reducers = {
   products: productsRedux,
   users: usersRedux,
   cart: cartRedux,
-  order: orderRedux,
+  orders: orderRedux,
   userLogin: userLoginRedux,
 };
 

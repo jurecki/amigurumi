@@ -7,7 +7,8 @@ class OrderPage extends React.Component {
 
 
   render() {
-    const { shipping, isDelivered, deliveredAt, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order;
+    { console.log('propsorder', this.props.order) }
+    const { shippingAddress, isDelivered, deliveredAt, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order;
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -15,18 +16,19 @@ class OrderPage extends React.Component {
             <div className={styles.placeorderInfo}>
               <div>
                 <h3>
+
                   Shipping
                 </h3>
                 <div>
-                  {shipping.address}, {shipping.city},
-                  {shipping.postalCode}, {shipping.country},
+                  {shippingAddress.address}, {shippingAddress.city},
+                  {shippingAddress.postalCode}, {shippingAddress.country},
                 </div>
                 <div>
                   {isDelivered ? 'Delivered at ' + deliveredAt : 'Not Delivered.'}
                 </div>
               </div>
               <div>
-                <h3>Payment</h3>
+                <h3>Payment</h3>,
                 <div>
                   {/* Payment Method: {payment.paymentMethod} */}
                 </div>
@@ -44,7 +46,7 @@ class OrderPage extends React.Component {
                       Price
                     </div>
                   </li>
-                  {
+                  {/* {
                     orderItem.map(item =>
                       <li key={item.id}>
                         <div className={styles.cartImages}>
@@ -66,7 +68,7 @@ class OrderPage extends React.Component {
                         </div>
                       </li>
                     )
-                  }
+                  } */}
                 </ul>
               </div>
 

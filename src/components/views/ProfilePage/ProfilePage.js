@@ -75,7 +75,7 @@ class ProfilePage extends React.Component {
                 </thead>
                 <tbody>
 
-                  {orders.map(order => <tr key={order.id}>
+                  {/* {orders.map(order => <tr key={order.id}>
                     <td>{order.id}</td>
                     <td>order.createdAt</td>
                     <td>{order.totalPrice}</td>
@@ -83,7 +83,7 @@ class ProfilePage extends React.Component {
                     <td>
                       <Link to={'/order/' + order.id}>DETAILS</Link>
                     </td>
-                  </tr>)}
+                  </tr>)} */}
 
                 </tbody>
               </table>

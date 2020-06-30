@@ -6,7 +6,7 @@ const initialState = {
     shipping: {},
     payment: {},
   },
-
+  orders: [],
   users: {
     userInfo: [
       {

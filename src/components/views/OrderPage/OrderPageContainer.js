@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { getOrderById } from '../../../redux/orderRedux';
+import { getOrder } from '../../../redux/orderRedux';
 import OrderPage from './OrderPage';
 
 const mapStateToProps = (state, props) => ({
-  order: getOrderById(state, props.match.params.id),
+  order: getOrder(state),
 }
 
 );

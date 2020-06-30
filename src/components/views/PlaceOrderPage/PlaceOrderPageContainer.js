@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getShoppingCart } from '../../../redux/cartRedux';
 import PlaceOrderPage from './PlaceOrderPage';
-import { createActionCreateOrder } from '../../../redux/orderRedux';
+import { addOrderRequest } from '../../../redux/orderRedux';
 import { getUserInfo } from '../../../redux/userLoginRedux.js';
 
 const mapStateToProps = (state, props) => ({
@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => ({
 );
 
 const mapDispatchToProps = dispatch => ({
-  createOrder: (items, shipping, payment, shippingPrice, totalPrice, id, idUser) => dispatch(createActionCreateOrder(items, shipping, payment, shippingPrice, totalPrice, id, idUser)),
+  createOrder: (items, shipping, payment, shippingPrice, totalPrice, userLogin, id) => dispatch(addOrderRequest({ items, shipping, payment, shippingPrice, totalPrice, userLogin, id })),
 });
 
 
