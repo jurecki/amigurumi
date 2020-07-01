@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import { getOrder } from '../../../redux/orderRedux';
+import { getOrders, getOrderById } from '../../../redux/orderRedux';
 import OrderPage from './OrderPage';
 
 const mapStateToProps = (state, props) => ({
-  order: getOrder(state),
+  order: getOrders(state),
 }
 
 );
 
 const mapDispatchToProps = dispatch => ({
-
+  loadOrderById: (id) => dispatch(getOrderById(id)),
 });
 
 

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Order = require('../models/orders.model');
-const { db } = require('../models/orders.model');
+
 
 router.get('/orders', async (req, res) => {
   try {
@@ -22,11 +22,11 @@ router.post('/orders', async (req, res) => {
     const shippingAddress = req.body.shipping;
     const payment = req.body.payment;
     const shippingPrice = req.body.shippingPrice;
-    const idUser = req.body.idUser;
+    const idUser = req.body.userLogin;
     const totalPrice = req.body.totalPrice;
-    const id = req.body.id;
+    const orderData = new Date();
 
-    const newOrder = new Order({ shippingAddress: shippingAddress, orderItem: orderItem, payment: payment, shippingPrice: shippingPrice, idUser: idUser, totalPrice: totalPrice, id: id });
+    const newOrder = new Order({ shippingAddress: shippingAddress, orderItem: orderItem, payment: payment, shippingPrice: shippingPrice, idUser: idUser, totalPrice: totalPrice, createDate: orderData });
     await newOrder.save();
     res.json(newOrder);
   }
@@ -38,7 +38,7 @@ router.post('/orders', async (req, res) => {
 
 router.get('/orders/:id', async (req, res) => {
   try {
-    const result = await Order.findOne({ _id: req.params.id });
+    const result = await Order.findById(req.params.id);
     if (!result) res.status(400).json({ category: 'Not found' });
     else res.json(result);
   }
@@ -46,5 +46,18 @@ router.get('/orders/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/orders/user/:id', async (req, res) => {
+  try {
+    const result = await Order.find({ idUser: req.params.id });
+    if (!result) res.status(400).json({ category: 'Not found' });
+    else res.json(result);
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 module.exports = router;

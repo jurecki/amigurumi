@@ -13,11 +13,14 @@ class ProfilePage extends React.Component {
   handleLogout = () => {
     console.log('logoutUser');
   }
+  componentDidMount() {
+    const idUser = this.props.match.params.id;
+    this.props.loadOrdersByUser(idUser);
+  }
 
   render() {
-    const { userInfo } = this.props;
-    const { orders } = this.props;
-    console.log('zamowienia', orders);
+    const { userInfo, orders } = this.props;
+    console.log('order', this.props.orders);
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -75,15 +78,15 @@ class ProfilePage extends React.Component {
                 </thead>
                 <tbody>
 
-                  {/* {orders.map(order => <tr key={order.id}>
-                    <td>{order.id}</td>
-                    <td>order.createdAt</td>
+                  {orders.map(order => <tr key={order._id}>
+                    <td>{order._id}</td>
+                    <td>{order.createDate}</td>
                     <td>{order.totalPrice}</td>
-                    <td>order.isPaid</td>
+                    <td>PAY NOW</td>
                     <td>
-                      <Link to={'/order/' + order.id}>DETAILS</Link>
+                      <Link to={'/order/' + order._id}>DETAILS</Link>
                     </td>
-                  </tr>)} */}
+                  </tr>)}
 
                 </tbody>
               </table>
@@ -97,6 +100,8 @@ class ProfilePage extends React.Component {
 
 ProfilePage.propTypes = {
   userInfo: propTypes.object,
+  loadOrdersByUser: propTypes.func,
+  match: propTypes.object,
   orders: propTypes.array,
 };
 

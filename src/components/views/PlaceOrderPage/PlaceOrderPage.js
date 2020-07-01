@@ -3,18 +3,15 @@ import styles from './PlaceOrderPage.module.scss';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../../common/CheckoutSteps/CheckoutSteps';
-import shortid from 'shortid';
-
 class PlaceOrderPage extends React.Component {
 
   handleOrder = (e, shippingPrice, totalPrice) => {
     e.preventDefault();
     const { cart, userLogin } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
-    const id = shortid.generate();
-
-    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, id, userLogin.id);
-    this.props.history.push('/order/' + id);
+    console.log('userLogin', userLogin.id);
+    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, userLogin.id);
+    this.props.history.push(`/profile/${userLogin.id}`);
   }
 
   render() {
