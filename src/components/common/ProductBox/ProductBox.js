@@ -31,7 +31,7 @@ class ProductBox extends React.Component {
 }
 
 ProductBox.propTypes = {
-  product: PropTypes.object,
+  product: PropTypes.array,
 };
 
 export default ProductBox;

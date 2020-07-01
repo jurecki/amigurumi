@@ -20,7 +20,10 @@ class ShoppingCartPage extends React.Component {
 
   render() {
     console.log(this.props.cart.cartItems);
-    const { cartItems } = this.props.cart;
+    //const { cartItems } = this.props.cart;
+    const cartItems = JSON.parse(localStorage.getItem('cart'));
+
+
     return (
       <div className='container'>
         <div className={styles.cart}>
@@ -36,21 +39,21 @@ class ShoppingCartPage extends React.Component {
                 </div>
                 :
                 cartItems.map(item =>
-                  <li key={item.id}>
+                  <li key={item._id}>
                     <div className={styles.cartImage}>
                       <img src={item.image} alt="product" />
                     </div>
                     <div className={styles.cartName}>
                       <div>
-                        <Link to={'/product/' + item.id}>
+                        <Link to={'/product/' + item._id}>
                           {item.name}
                         </Link>
                       </div>
                       <div>
 
                         Quantity: <AddToCart product={cartItems} btn='hidden' counter='' value={item.qty} />
-                        {console.log('ilosc', item.qty)}
-                        <button type="button" className="button" onClick={this.removeFromCart.bind(this, item.id)} >
+
+                        <button type="button" className="button" onClick={this.removeFromCart.bind(this, item._id)} >
                           Delete
                         </button>
                       </div>

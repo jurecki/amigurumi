@@ -26,8 +26,8 @@ class LoginForm extends React.Component {
     //check if the user is register
     const loginUser = this.props.user.userInfo.find(user => user.email === this.state.email && user.password === this.state.password);
     this.props.userLogin(loginUser);
-
-    if (this.props.cart.cartItems.length === 0) {
+    const cartItems = JSON.parse(localStorage.getItem('cart'));
+    if (cartItems.length === 0) {
       console.log('koszyk', this.props.cart.cartItems.length);
       this.props.history.push('/profile/' + loginUser.id);
     } else {

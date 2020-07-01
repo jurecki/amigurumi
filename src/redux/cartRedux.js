@@ -22,18 +22,41 @@ export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT
 export const addCartToStorage = (product, qty) => {
   return async dispatch => {
 
-    console.log('jestem w redux/thunk dodam tutaj coś toStorage');
-    //get content from the storag
-    const cart = [];
+    //add cartProducts to localStorage
+    let cart = [];
+    let cartProducts = [];
 
-    cart.push('lalal');
-    
-    localStorage.setItem('cart', JSON.stringify(cart));
+    cartProducts = JSON.parse(localStorage.getItem('cart'));
+    if (cartProducts === null) {
+      cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      cart = JSON.parse(localStorage.getItem('cart'));
+      cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
 
-
+      localStorage.setItem('cart', JSON.stringify(cart));
+      console.log('dodaj product');
+    }
+    // add cartProducts to state
     dispatch(createActionAddToCart(product, qty));
   };
+};
 
+export const removeCartFormLocalStorage = (id) => {
+  return dispatch => {
+
+    //remove item form LocalStorage
+    let cart;
+    const cartProducts = JSON.parse(localStorage.getItem('cart'));
+    localStorage.removeItem('cart');
+
+    (cartProducts !== null) && (cart = cartProducts.filter(item => item._id !== id));
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    //remove item form state
+    dispatch(createActionRemoveFromCart(id));
+  };
 };
 
 
@@ -46,7 +69,7 @@ export default function reducer(statePart = [], action = {}) {
         cartItems: [...statePart.cartItems, action.payload],
       };
     case REMOVE_FROM_CART: {
-      let cartItems = statePart.cartItems.filter(item => item.id !== action.payload);
+      let cartItems = statePart.cartItems.filter(item => item._id !== action.payload);
       return {
         ...statePart,
         cartItems,

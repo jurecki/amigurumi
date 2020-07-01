@@ -10,7 +10,7 @@ class PlaceOrderPage extends React.Component {
   handleOrder = (e, shippingPrice, totalPrice) => {
     e.preventDefault();
     const { cart, userLogin } = this.props;
-    const { cartItems } = this.props.cart;
+    const cartItems = JSON.parse(localStorage.getItem('cart'));
     const id = shortid.generate();
 
     this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, id, userLogin.id);
@@ -19,7 +19,7 @@ class PlaceOrderPage extends React.Component {
 
   render() {
     const { cart } = this.props;
-    const { cartItems } = this.props.cart;
+    const cartItems = JSON.parse(localStorage.getItem('cart'));
 
     const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const shippingPrice = itemsPrice > 100 ? 0 : 10;

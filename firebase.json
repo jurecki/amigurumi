@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "Documents/kodilla/amigurumi/build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
