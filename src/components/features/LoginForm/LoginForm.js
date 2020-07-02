@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { API_URL } from '../../../config';
 
 class LoginForm extends React.Component {
 
@@ -52,6 +52,9 @@ class LoginForm extends React.Component {
         </div>
         <div className='form-row justify-content-start ml-3 mt-3'>
           <button type="submit" className="btn btn-secondary ">LOGIN</button>
+
+          <button type="submit" className="btn btn-secondary "><a href={`${API_URL}/google`}>LOGIN WITH GOOGLE</a></button>
+
         </div>
         <div>
           <Link to={`${process.env.PUBLIC_URL}/register`}>No account? Create one here ?</Link>

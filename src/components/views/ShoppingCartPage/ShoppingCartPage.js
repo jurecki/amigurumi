@@ -19,7 +19,7 @@ class ShoppingCartPage extends React.Component {
   }
 
   render() {
-    console.log(this.props.cart.cartItems);
+   
     //const { cartItems } = this.props.cart;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
 
