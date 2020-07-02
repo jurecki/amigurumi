@@ -13,10 +13,6 @@ class RegisterForm extends React.Component {
     },
   }
 
-  static propTypes = {
-    addUser: PropTypes.func,
-  }
-
   handleOnChange = (e) => {
     e.preventDefault();
 
@@ -83,6 +79,7 @@ class RegisterForm extends React.Component {
 
 RegisterForm.propTypes = {
   history: PropTypes.object,
+  addUser: PropTypes.func,
 };
 
 export default withRouter(RegisterForm);

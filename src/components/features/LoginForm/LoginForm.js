@@ -24,12 +24,15 @@ class LoginForm extends React.Component {
   handleOnSubmit = (e) => {
     e.preventDefault();
     //check if the user is register
-    const loginUser = this.props.user.userInfo.find(user => user.email === this.state.email && user.password === this.state.password);
-    this.props.userLogin(loginUser);
+    const email = this.state.email;
+    const password = this.state.password;
+
+    this.props.getUser(email, password);
+
     const cartItems = JSON.parse(localStorage.getItem('cart'));
     if (cartItems.length === 0) {
       console.log('koszyk', this.props.cart.cartItems.length);
-      this.props.history.push('/profile/' + loginUser.id);
+      this.props.history.push('/profile/');
     } else {
       this.props.history.push('/shipping');
     }
@@ -67,7 +70,7 @@ class LoginForm extends React.Component {
 LoginForm.propTypes = {
   user: PropTypes.object,
   history: PropTypes.object,
-  userLogin: PropTypes.func,
+  getUser: PropTypes.func,
   cart: PropTypes.object,
 };
 
