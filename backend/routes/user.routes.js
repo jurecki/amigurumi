@@ -34,6 +34,23 @@ router.get('/profile/:id', async (req, res) => {
   }
 });
 
+router.post('/users/login', async (req, res) => {
+  try {
+    console.log('userlogin', req.body);
+    const result = await User.find({ email: req.body.email, password: req.body.password });
+    if (result.length === 0) res.status(404).json({ messsage: 'Not found' });
+    else {
+      console.log('poprawnie zalogowany', result);
+      res.json(result);
+      //res.redirect(`/api/profile/${result[0]._id}`);
+
+    }
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 router.get('/user/no-permission', (req, res) => {
   console.log('norPermission');

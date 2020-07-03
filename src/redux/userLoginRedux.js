@@ -1,5 +1,5 @@
 /* selectors */
-export const getUserInfo = ({userLogin}) => userLogin.userInfo;
+export const getUserInfo = ({ userLogin }) => userLogin.userInfo;
 // action name creator
 const reducerName = 'userLogin';
 const createActionName = name => `app/${reducerName}/${name}`;

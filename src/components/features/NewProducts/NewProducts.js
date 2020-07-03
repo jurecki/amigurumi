@@ -17,7 +17,6 @@ class NewProducts extends React.Component {
               <h3>New Products</h3>
             </div>
             <div className='row'>
-              {console.log('baza', products)}
               {/* if products don't load show spinner */}
               {products === undefined
                 ?
@@ -27,7 +26,7 @@ class NewProducts extends React.Component {
                   </div>
                 </div>
                 :
-                products.map(product => <div key={product.id} className='col-12 col-lg-3'> <ProductBox product={product} /> </div>)
+                products.map(product => <div key={product._id} className='col-12 col-lg-3'> <ProductBox product={product} /> </div>)
               }
             </div>
           </div>

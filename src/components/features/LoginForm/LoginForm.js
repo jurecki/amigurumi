@@ -29,10 +29,10 @@ class LoginForm extends React.Component {
 
     this.props.getUser(email, password);
 
+
     const cartItems = JSON.parse(localStorage.getItem('cart'));
     if (cartItems.length === 0) {
-      console.log('koszyk', this.props.cart.cartItems.length);
-      this.props.history.push('/profile/');
+      this.props.history.push('/');
     } else {
       this.props.history.push('/shipping');
     }

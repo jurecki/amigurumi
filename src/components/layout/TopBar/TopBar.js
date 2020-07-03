@@ -34,9 +34,9 @@ const TopBar = (props) => (
           </ul>
         </div>
         <div className={`col text-right ${styles.topRight}`}>
-          <ul> {props.userLogin ?
+          <ul> {props.user ?
             <li>
-              <Link to={`${process.env.PUBLIC_URL}/profile/${props.userLogin.id}`}> {props.userLogin.firstName} {props.userLogin.lastName}</Link>
+              <Link to={`${process.env.PUBLIC_URL}/profile/${props.user[0]._id}`}> {props.user[0].firstName} {props.user[0].lastName}</Link>
             </li>
             :
             <>
@@ -66,7 +66,7 @@ const TopBar = (props) => (
 );
 
 TopBar.propTypes = {
-  userLogin: PropTypes.object,
+  user: PropTypes.array,
 };
 
 export default TopBar;

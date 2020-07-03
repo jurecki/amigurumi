@@ -7,23 +7,19 @@ import AddToCart from '../../features/AddToCart/AddToCartContainer';
 class ShoppingCartPage extends React.Component {
 
   removeFromCart = (id) => {
-    console.log('remove', id);
     this.props.removeFromCart(id);
+    this.forceUpdate();
   }
 
   checkoutHandler = () => {
-    console.log('userLogin', this.props.userLogin);
-    if (this.props.userLogin === undefined) {
+    console.log('userLogin', this.props.user);
+    if (this.props.user === undefined) {
       this.props.history.push('/login');
     } else this.props.history.push('/shipping');
   }
 
   render() {
-   
-    //const { cartItems } = this.props.cart;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
-
-
     return (
       <div className='container'>
         <div className={styles.cart}>
@@ -84,10 +80,9 @@ class ShoppingCartPage extends React.Component {
 }
 
 ShoppingCartPage.propTypes = {
-  cart: PropTypes.object,
   removeFromCart: PropTypes.func,
   history: PropTypes.object,
-  userLogin: PropTypes.object,
+  user: PropTypes.array,
 };
 
 export default withRouter(ShoppingCartPage);

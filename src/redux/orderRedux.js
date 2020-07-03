@@ -119,7 +119,7 @@ export default function reducer(statePart = [], action = {}) {
     case LOAD_ORDER_BY_ID:
       return {
         ...statePart,
-        data: action.payload,
+        data: [action.payload],
       };
 
     default:

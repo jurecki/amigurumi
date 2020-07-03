@@ -21,43 +21,33 @@ export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT
 
 
 export const addCartToStorage = (product, qty) => {
-  return async dispatch => {
 
-    //add cartProducts to localStorage
-    let cart = [];
-    let cartProducts = [];
+  let cart = [];
+  let cartProducts = [];
 
-    cartProducts = JSON.parse(localStorage.getItem('cart'));
-    if (cartProducts === null) {
-      cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
-      localStorage.setItem('cart', JSON.stringify(cart));
-    } else {
-      cart = JSON.parse(localStorage.getItem('cart'));
-      cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
+  cartProducts = JSON.parse(localStorage.getItem('cart'));
+  if (cartProducts === null) {
+    cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
 
-      localStorage.setItem('cart', JSON.stringify(cart));
-      console.log('dodaj product');
-    }
-    // add cartProducts to state
-    dispatch(createActionAddToCart(product, qty));
-  };
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log('dodaj product');
+  }
+
 };
 
 export const removeCartFormLocalStorage = (id) => {
-  return dispatch => {
+  //remove item form LocalStorage
+  let cart;
+  const cartProducts = JSON.parse(localStorage.getItem('cart'));
+  localStorage.removeItem('cart');
 
-    //remove item form LocalStorage
-    let cart;
-    const cartProducts = JSON.parse(localStorage.getItem('cart'));
-    localStorage.removeItem('cart');
+  (cartProducts !== null) && (cart = cartProducts.filter(item => item._id !== id));
 
-    (cartProducts !== null) && (cart = cartProducts.filter(item => item._id !== id));
-
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    //remove item form state
-    dispatch(createActionRemoveFromCart(id));
-  };
+  localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 

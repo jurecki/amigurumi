@@ -7,12 +7,13 @@ class OrderPage extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log('idoreder', id);
+
     this.props.loadOrderById(id);
   }
 
   render() {
-    const { shippingAddress, isDelivered, deliveredAt, payment, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order;
+    const { shippingAddress, isDelivered, deliveredAt, payment, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order[0];
+    console.log('oRDER by ID', this.props.order[0]);
     return (
       (this.props.order.length === 0) ?
         <div className="d-flex justify-content-center">
@@ -110,7 +111,7 @@ class OrderPage extends React.Component {
 }
 
 OrderPage.propTypes = {
-  order: propTypes.object,
+  order: propTypes.array,
   match: propTypes.object,
   loadOrderById: propTypes.func,
 };

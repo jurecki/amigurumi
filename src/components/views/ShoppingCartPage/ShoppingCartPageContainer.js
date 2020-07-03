@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
-import { getShoppingCart, removeCartFormLocalStorage } from '../../../redux/cartRedux';
-import { getUserInfo } from '../../../redux/userLoginRedux.js';
+import { removeCartFormLocalStorage } from '../../../redux/cartRedux';
+import { loadUser } from '../../../redux/usersRedux.js';
 import ShoppingCartPage from './ShoppingCartPage';
 
 const mapStateToProps = (state, props) => ({
-  cart: getShoppingCart(state, props.id),
-  userLogin: getUserInfo(state),
+  user: loadUser(state),
 }
 
 );
 
 const mapDispatchToProps = dispatch => ({
-  removeFromCart: id => dispatch(removeCartFormLocalStorage(id)),
+  removeFromCart: id => removeCartFormLocalStorage(id),
 });
 
 

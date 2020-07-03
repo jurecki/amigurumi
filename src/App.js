@@ -41,7 +41,7 @@ class App extends Component {
           <Route path={'/payment'} component={PaymentPage} />
           <Route path={'/placeorder'} component={PlaceOrderPage} />
           <Route path={'/order/:id'} component={OrderPage} />
-          <Route path={'/profile/:id'} component={ProfilePage} />
+          <Route path={'/profile'} component={ProfilePage} />
         </Switch>
       </MainLayout>
     );

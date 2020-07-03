@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { getUserInfo } from '../../../redux/userLoginRedux.js';
+import { loadUser } from '../../../redux/usersRedux.js';
 import TopBar from './TopBar';
 
 const mapStateToProps = state => ({
-  userLogin: getUserInfo(state),
+  user: loadUser(state),
 });
 
 // const mapDispatchToProps = dispatch => ({
