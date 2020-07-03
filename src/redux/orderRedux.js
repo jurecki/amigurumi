@@ -114,7 +114,7 @@ export default function reducer(statePart = [], action = {}) {
     case LOAD_ORDER_BY_USER:
       return {
         ...statePart,
-        data: action.payload,
+        data: [action.payload],
       };
     case LOAD_ORDER_BY_ID:
       return {

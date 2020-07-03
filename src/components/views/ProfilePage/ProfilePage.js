@@ -41,6 +41,7 @@ ProfilePage.propTypes = {
   loadOrdersByUser: propTypes.func,
   match: propTypes.object,
   orders: propTypes.array,
+  user: propTypes.array,
 };
 
 

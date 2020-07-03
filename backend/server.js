@@ -14,7 +14,7 @@ const ordersRoutes = require('./routes/orders.routes');
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const app = express();
-
+const app1 = express();
 /* MIDDLEWARE */
 
 //init session mechanism
@@ -67,3 +67,9 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log('Server is running on port: ' + port);
 });
+
+app1.listen(3000, () => {
+  console.log('Server is running on port: ' + port);
+});
+
+app1.use('/api', userRoutes);

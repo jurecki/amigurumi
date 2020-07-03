@@ -23,7 +23,7 @@ router.post('/users', async (req, res) => {
 
 router.get('/profile/:id', async (req, res) => {
   try {
-    const result = await User.find({ id: req.params.id });
+    const result = await User.find({id: req.params.id});
     if (!result) res.status(404).json({ post: 'Not found' });
     else {
       res.json(result);

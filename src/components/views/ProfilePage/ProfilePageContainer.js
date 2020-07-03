@@ -6,6 +6,7 @@ import ProfilePage from './ProfilePage';
 const mapStateToProps = (state, props) => ({
   user: loadUser(state),
   orders: getOrders(state),
+  user: loadUser(state),
 });
 
 const mapDispatchToProps = dispatch => ({

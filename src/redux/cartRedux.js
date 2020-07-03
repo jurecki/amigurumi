@@ -19,7 +19,6 @@ export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT
 
 /* thunk creators */
 
-
 export const addCartToStorage = (product, qty) => {
 
   let cart = [];

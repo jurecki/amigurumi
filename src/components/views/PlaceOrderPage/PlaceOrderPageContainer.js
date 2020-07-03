@@ -12,7 +12,7 @@ const mapStateToProps = (state, props) => ({
 );
 
 const mapDispatchToProps = dispatch => ({
-  createOrder: (items, shipping, payment, shippingPrice, totalPrice, userLogin) => dispatch(addOrderRequest({ items, shipping, payment, shippingPrice, totalPrice, userLogin })),
+  createOrder: (items, shipping, payment, shippingPrice, totalPrice, userId) => dispatch(addOrderRequest({ items, shipping, payment, shippingPrice, totalPrice, userId })),
 });
 
 
