@@ -10,7 +10,7 @@ const mapStateToProps = (state, props) => (
 );
 
 const mapDispatchToProps = dispatch => ({
-  getUser: (email, password) => dispatch((getUser(email, password))),
+  getUser: (email, password) => dispatch((getUser({email, password}))),
 });
 
 

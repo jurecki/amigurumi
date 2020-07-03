@@ -7,14 +7,14 @@ class PlaceOrderPage extends React.Component {
 
   handleOrder = (e, shippingPrice, totalPrice) => {
     e.preventDefault();
-    const { cart, userLogin } = this.props;
+    const { cart, user } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
-    console.log('userLogin', userLogin.id);
-    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, userLogin.id);
+    console.log('userLogin', user.id);
+    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, user.id);
     localStorage.removeItem('cart');
 
     localStorage.setItem('cart', JSON.stringify([]));
-    this.props.history.push(`/profile/${userLogin.id}`);
+    this.props.history.push(`/profile`);
   }
 
   render() {
@@ -131,7 +131,7 @@ PlaceOrderPage.propTypes = {
   cart: PropTypes.object,
   createOrder: PropTypes.func,
   history: PropTypes.object,
-  userLogin: PropTypes.object,
+  user: PropTypes.object,
 };
 
 export default PlaceOrderPage;

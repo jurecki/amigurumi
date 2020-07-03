@@ -19,15 +19,23 @@ class ProfilePage extends React.Component {
   }
 
   render() {
-    const { userInfo, orders } = this.props;
-    console.log('order', this.props.orders);
+    const { userInfo, orders, user } = this.props;
+    console.log('user', this.props.user);
     return (
       <div className={styles.root}>
         <div className='container'>
           <div className='row'>
             <div className={styles.profileInfo}>
               <div className="form">
-                Hello: {userInfo[0].firstName} {userInfo[0].lastName}
+                {user === undefined
+                  ?
+                  <div className="d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                  :
+                  <div>Hello: {user[0].firstName} {user[0].lastName}</div>}
 
                 {/* <form onSubmit={this.handleOnSubmit} >
                   <ul className="form-container">
@@ -103,6 +111,7 @@ ProfilePage.propTypes = {
   loadOrdersByUser: propTypes.func,
   match: propTypes.object,
   orders: propTypes.array,
+  user: propTypes.array,
 };
 
 

@@ -28,14 +28,15 @@ class LoginForm extends React.Component {
     const password = this.state.password;
 
     this.props.getUser(email, password);
+    this.props.history.push('/profile');
 
-    const cartItems = JSON.parse(localStorage.getItem('cart'));
-    if (cartItems.length === 0) {
-      console.log('koszyk', this.props.cart.cartItems.length);
-      this.props.history.push('/profile/');
-    } else {
-      this.props.history.push('/shipping');
-    }
+    //const cartItems = JSON.parse(localStorage.getItem('cart'));
+    // if (cartItems.length === 0) {
+    //   console.log('koszyk', this.props.cart.cartItems.length);
+    //   this.props.history.push('/profile');
+    // } else {
+    //   this.props.history.push('/shipping');
+    // }
 
 
 

@@ -13,13 +13,11 @@ class ShoppingCartPage extends React.Component {
 
   checkoutHandler = () => {
     console.log('userLogin', this.props.userLogin);
-    if (this.props.userLogin === undefined) {
-      this.props.history.push('/login');
-    } else this.props.history.push('/shipping');
+    this.props.history.push('/shipping');
   }
 
   render() {
-   
+
     //const { cartItems } = this.props.cart;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
 
