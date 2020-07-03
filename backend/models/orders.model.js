@@ -4,7 +4,7 @@ const orderSchema = new mongoose.Schema({
   orderItem: { type: Array },
   shippingAddress: { type: Object },
   payment: { type: Object },
-  idUser: { type: String },
+  userId: { type: String },
   shippingPrice: { type: Number },
   totalPrice: { type: Number },
   id: { type: String },

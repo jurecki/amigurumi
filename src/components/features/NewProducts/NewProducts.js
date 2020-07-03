@@ -17,7 +17,6 @@ class NewProducts extends React.Component {
               <h3>New Products</h3>
             </div>
             <div className='row'>
-              {console.log('baza', products)}
               {/* if products don't load show spinner */}
               {products === undefined
                 ?

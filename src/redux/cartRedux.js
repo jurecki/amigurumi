@@ -19,28 +19,23 @@ export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT
 
 /* thunk creators */
 
-
 export const addCartToStorage = (product, qty) => {
-  return async dispatch => {
 
-    //add cartProducts to localStorage
-    let cart = [];
-    let cartProducts = [];
+  let cart = [];
+  let cartProducts = [];
 
-    cartProducts = JSON.parse(localStorage.getItem('cart'));
-    if (cartProducts === null) {
-      cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
-      localStorage.setItem('cart', JSON.stringify(cart));
-    } else {
-      cart = JSON.parse(localStorage.getItem('cart'));
-      cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
+  cartProducts = JSON.parse(localStorage.getItem('cart'));
+  if (cartProducts === null) {
+    cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
 
-      localStorage.setItem('cart', JSON.stringify(cart));
-      console.log('dodaj product');
-    }
-    // add cartProducts to state
-    dispatch(createActionAddToCart(product, qty));
-  };
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+  }
+
 };
 
 export const removeCartFormLocalStorage = (id) => {

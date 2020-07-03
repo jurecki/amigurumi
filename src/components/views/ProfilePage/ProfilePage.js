@@ -13,14 +13,11 @@ class ProfilePage extends React.Component {
   handleLogout = () => {
     console.log('logoutUser');
   }
-  componentDidMount() {
-    const idUser = this.props.match.params.id;
-    this.props.loadOrdersByUser(idUser);
-  }
+
+
 
   render() {
-    const { userInfo, orders, user } = this.props;
-    console.log('user', this.props.user);
+    const { orders, user, loadOrdersByUser } = this.props;
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -35,7 +32,10 @@ class ProfilePage extends React.Component {
                     </div>
                   </div>
                   :
-                  <div>Hello: {user[0].firstName} {user[0].lastName}</div>}
+                  <div>
+                    <div>Hello: {user[0].firstName} {user[0].lastName}</div>
+                  </div>
+                }
 
                 {/* <form onSubmit={this.handleOnSubmit} >
                   <ul className="form-container">
@@ -74,30 +74,39 @@ class ProfilePage extends React.Component {
             </div>
 
             <div className={styles.profileOrders}>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>DATE</th>
-                    <th>TOTAL</th>
-                    <th>PAID</th>
-                    <th>ACTIONS</th>
-                  </tr>
-                </thead>
-                <tbody>
+              {orders === undefined
+                ?
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+                :
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>DATE</th>
+                      <th>TOTAL</th>
+                      <th>PAID</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
 
-                  {orders.map(order => <tr key={order._id}>
-                    <td>{order._id}</td>
-                    <td>{order.createDate}</td>
-                    <td>{order.totalPrice}</td>
-                    <td>PAY NOW</td>
-                    <td>
-                      <Link to={'/order/' + order._id}>DETAILS</Link>
-                    </td>
-                  </tr>)}
+                    {orders.map(order => <tr key={order._id}>
+                      <td>{order._id}</td>
+                      <td>{order.createDate}</td>
+                      <td>{order.totalPrice}</td>
+                      <td>PAY NOW</td>
+                      <td>
+                        <Link to={'/order/' + order._id}>DETAILS</Link>
+                      </td>
+                    </tr>)}
 
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              }
             </div>
           </div>
         </div>
@@ -107,7 +116,6 @@ class ProfilePage extends React.Component {
 }
 
 ProfilePage.propTypes = {
-  userInfo: propTypes.object,
   loadOrdersByUser: propTypes.func,
   match: propTypes.object,
   orders: propTypes.array,

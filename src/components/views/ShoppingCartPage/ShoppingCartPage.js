@@ -7,20 +7,15 @@ import AddToCart from '../../features/AddToCart/AddToCartContainer';
 class ShoppingCartPage extends React.Component {
 
   removeFromCart = (id) => {
-    console.log('remove', id);
     this.props.removeFromCart(id);
   }
 
   checkoutHandler = () => {
-    console.log('userLogin', this.props.userLogin);
     this.props.history.push('/shipping');
   }
 
   render() {
-
-    //const { cartItems } = this.props.cart;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
-
 
     return (
       <div className='container'>

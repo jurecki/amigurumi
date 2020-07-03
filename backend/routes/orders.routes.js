@@ -22,12 +22,13 @@ router.post('/orders', async (req, res) => {
     const shippingAddress = req.body.shipping;
     const payment = req.body.payment;
     const shippingPrice = req.body.shippingPrice;
-    const idUser = req.body.userLogin;
+    const userId = req.body.userId;
     const totalPrice = req.body.totalPrice;
-    const orderData = new Date();
+    const createDate = new Date();
 
-    const newOrder = new Order({ shippingAddress: shippingAddress, orderItem: orderItem, payment: payment, shippingPrice: shippingPrice, idUser: idUser, totalPrice: totalPrice, createDate: orderData });
+    const newOrder = new Order({ shippingAddress, orderItem, payment, shippingPrice, userId, totalPrice, createDate });
     await newOrder.save();
+    console.log('newOrder', newOrder);
     res.json(newOrder);
   }
 

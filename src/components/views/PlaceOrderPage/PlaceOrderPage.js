@@ -9,8 +9,8 @@ class PlaceOrderPage extends React.Component {
     e.preventDefault();
     const { cart, user } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
-    console.log('userLogin', user.id);
-    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, user.id);
+    console.log('userLogin', user);
+    this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, user[0]._id);
     localStorage.removeItem('cart');
 
     localStorage.setItem('cart', JSON.stringify([]));
