@@ -26,6 +26,17 @@ router.post('/orders', async (req, res) => {
     const totalPrice = req.body.totalPrice;
     const createDate = new Date();
 
+    req.session.login = 'Kodilla';
+
+    req.session.cart = {
+      products: [
+        {id: 123, count: 3, notes: 'red shirt with black print'},
+      ],
+    };
+
+    console.log(req.session.login); // Kodilla
+    console.log(req.session.cart.products.id); // 123
+
     const newOrder = new Order({ shippingAddress, orderItem, payment, shippingPrice, userId, totalPrice, createDate });
     await newOrder.save();
     console.log('newOrder', newOrder);

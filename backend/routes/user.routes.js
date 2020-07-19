@@ -38,7 +38,7 @@ router.post('/users/login', async (req, res) => {
   try {
     console.log('userlogin', req.body);
     const result = await User.find({ email: req.body.email, password: req.body.password });
-    if (result.length === 0) res.status(404).json({ messsage: 'Not found' });
+    if (result.length === 0) res.status(404).send({ message: 'User Not Found' });
     else {
       console.log('poprawnie zalogowany', result);
       res.json(result);

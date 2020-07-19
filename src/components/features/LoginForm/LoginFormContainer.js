@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getUser } from '../../../redux/usersRedux';
+import { getUser, loadUser } from '../../../redux/usersRedux';
 import { getShoppingCart } from '../../../redux/cartRedux';
 import LoginForm from './LoginForm';
 

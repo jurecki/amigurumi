@@ -12,8 +12,8 @@ export const SAVE_SHIPPING = createActionName('SAVE_SHIPPING');
 export const SAVE_PAYMENT = createActionName('SAVE_PAYMENT');
 
 // action creators
-export const createActionAddToCart = (payload, qty) => ({ payload: { ...payload, qty: qty }, type: ADD_TO_CART });
-export const createActionRemoveFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
+// export const createActionAddToCart = (payload, qty) => ({ payload: { ...payload, qty: qty }, type: ADD_TO_CART });
+// export const createActionRemoveFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 export const createActionSaveShipping = payload => ({ payload, type: SAVE_SHIPPING });
 export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT });
 
@@ -53,18 +53,18 @@ export const removeCartFormLocalStorage = (id) => {
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case ADD_TO_CART:
-      return {
-        ...statePart,
-        cartItems: [...statePart.cartItems, action.payload],
-      };
-    case REMOVE_FROM_CART: {
-      let cartItems = statePart.cartItems.filter(item => item._id !== action.payload);
-      return {
-        ...statePart,
-        cartItems,
-      };
-    }
+    // case ADD_TO_CART:
+    //   return {
+    //     ...statePart,
+    //     cartItems: [...statePart.cartItems, action.payload],
+    //   };
+    // case REMOVE_FROM_CART: {
+    //   let cartItems = statePart.cartItems.filter(item => item._id !== action.payload);
+    //   return {
+    //     ...statePart,
+    //     cartItems,
+    //   };
+    // }
     case SAVE_SHIPPING: {
       return {
         ...statePart,
