@@ -91,7 +91,7 @@ const Footer = () => {
       <div className={styles.bottomBar}>
         <div className='container'>
           <div className={'col text-center order-lg-2 order-md-1 ' + styles.copyright}>
-            <p>© Copyright 2016 Jurecki | All Rights Reserved</p>
+            <p>© Copyright 2020 Jurecki | All Rights Reserved</p>
           </div>
           <div className={'col text-right order-lg-3 order-md-3 ' + styles.socialMedia}>
             <ul>

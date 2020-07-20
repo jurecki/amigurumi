@@ -64,7 +64,7 @@ class AddToCart extends React.Component {
 }
 
 AddToCart.propTypes = {
-  product: PropTypes.object,
+  product: PropTypes.array,
   addToCart: PropTypes.func,
   history: PropTypes.object,
   counter: PropTypes.node,

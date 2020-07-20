@@ -1,10 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .cart {
-  display: flex;
-  flex-wrap: wrap;
   margin: 1rem;
-  align-items: flex-start;
 }
 .cartList{
   flex: 3;
@@ -38,11 +35,21 @@
     img {
       max-width: 10rem;
       max-height: 10rem;
+      padding-right: 10px;
     }
   }
 }
 
-.cartImage{
+.button {
+  margin: 12px;
+  &:hover {
+    background-color: $text-color-prime;
+    color: $text-color-light;
+    border-color: $text-color-prime;
+  }
+}
+
+.cartImage {
   flex: 1 1;
   padding-right: 15px;
   max-width: 10rem;

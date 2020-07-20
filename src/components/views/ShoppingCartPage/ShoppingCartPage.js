@@ -47,9 +47,9 @@ class ShoppingCartPage extends React.Component {
                       </div>
                       <div>
 
-                        Quantity: <AddToCart product={cartItems} btn='hidden' counter='' value={item.qty} />
+                        Quantity: <AddToCart product={cartItems} btn='hidden1' counter='' value={item.qty} />
 
-                        <button type="button" className="button" onClick={this.removeFromCart.bind(this, item._id)} >
+                        <button type="button" className={styles.button} onClick={this.removeFromCart.bind(this, item._id)} >
                           Delete
                         </button>
                       </div>
@@ -68,7 +68,7 @@ class ShoppingCartPage extends React.Component {
               <h3>
                 Total ({cartItems.length} products) : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
               </h3>
-              <button className="button primary" disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
+              <button className={styles.button} disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
                 Proceed to Checkout
               </button>
             </div>
