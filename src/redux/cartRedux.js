@@ -31,36 +31,36 @@ export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT
 
 /* thunk creators */
 
-export const addCartToStorage = (data) => {
+export const addCartToStorage = (product, qty) => {
 
-  // let cart = [];
-  // let cartProducts = [];
+  let cart = [];
+  let cartProducts = [];
 
-  // cartProducts = JSON.parse(localStorage.getItem('cart'));
-  // if (cartProducts === null) {
-  //   cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
-  //   localStorage.setItem('cart', JSON.stringify(cart));
-  // } else {
-  //   cart = JSON.parse(localStorage.getItem('cart'));
-  //   cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
+  cartProducts = JSON.parse(localStorage.getItem('cart'));
+  if (cartProducts === null) {
+    cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
+    localStorage.setItem('cart', JSON.stringify(cart));
+  } else {
+    cartProducts = JSON.parse(localStorage.getItem('cart'));
 
-  //   localStorage.setItem('cart', JSON.stringify(cart));
-  //   console.log('dodaj product');
-  // }
+    //find duplicate object
+    let index = cartProducts.findIndex(item => item._id === product._id);
 
-  return async dispatch => {
-    dispatch(startRequest({ name: ADD_TO_CART }));
-    try {
-      console.log('DATA ITEMS IN REDUX', data);
-
-      let res = await axios.post(`${API_URL}/cart`, data);
-
-      dispatch(createActionAddToCart(res.data));
-      dispatch(endRequest({ name: ADD_TO_CART }));
-    } catch (e) {
-      dispatch(errorRequest({ name: ADD_TO_CART, error: e.message }));
+    if (index === -1) {
+      // if object dosen't exist add porduct to shoppingCart
+      cartProducts.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
+      localStorage.setItem('cart', JSON.stringify(cartProducts));
     }
-  };
+    else {
+      // remove product from shoppingCart and add this same product with qty++
+      let cart;
+      const cartProducts = JSON.parse(localStorage.getItem('cart'));
+      localStorage.removeItem('cart');
+      cart = cartProducts.filter(item => item._id !== product._id);
+      cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty + 1 });
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  }
 
 };
 
@@ -73,6 +73,21 @@ export const removeCartFormLocalStorage = (id) => {
   (cartProducts !== null) && (cart = cartProducts.filter(item => item._id !== id));
 
   localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+export const changeProductQty = (action, id) => {
+  console.log( action, id);
+
+  const cartProducts = JSON.parse(localStorage.getItem('cart'));
+  localStorage.removeItem('cart');
+
+  cartProducts.forEach(item => {
+    if(item._id === id) {
+      item.qty++;
+    }
+  });
+
+  localStorage.setItem('cart', JSON.stringify(cartProducts));
 };
 
 

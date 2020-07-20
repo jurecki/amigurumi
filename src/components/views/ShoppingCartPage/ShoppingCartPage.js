@@ -11,6 +11,11 @@ class ShoppingCartPage extends React.Component {
     this.forceUpdate();
   }
 
+  productQty = (e,action, id) => {
+    e.preventDefault();
+    this.props.changeProductQty(action, id);
+  }
+
   checkoutHandler = () => {
     console.log('userLogin', this.props.user);
     if (this.props.user === undefined) {
@@ -47,9 +52,13 @@ class ShoppingCartPage extends React.Component {
                       </div>
                       <div>
 
-                        Quantity: <AddToCart product={cartItems} btn='hidden' counter='' value={item.qty} />
+                        Quantity:
+                        <button onClick={(e) => this.productQty(e, 'increase', item._id)}>+</button>
+                        <button onClick={(e) => this.productQty(e, 'decrease', item._id)}>-</button>
 
-                        <button type="button" className="button" onClick={this.removeFromCart.bind(this, item._id)} >
+                        <AddToCart product={cartItems} btn='hidden1' counter='' value={item.qty} />
+
+                        <button type="button" className={styles.button} onClick={this.removeFromCart.bind(this, item._id)} >
                           Delete
                         </button>
                       </div>
@@ -68,7 +77,7 @@ class ShoppingCartPage extends React.Component {
               <h3>
                 Total ({cartItems.length} products) : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
               </h3>
-              <button className="button primary" disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
+              <button className={styles.button} disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
                 Proceed to Checkout
               </button>
             </div>
@@ -81,6 +90,7 @@ class ShoppingCartPage extends React.Component {
 
 ShoppingCartPage.propTypes = {
   removeFromCart: PropTypes.func,
+  changeProductQty: PropTypes.func,
   history: PropTypes.object,
   user: PropTypes.array,
 };
