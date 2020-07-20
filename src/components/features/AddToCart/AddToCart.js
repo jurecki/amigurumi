@@ -25,6 +25,7 @@ class AddToCart extends React.Component {
     this.setState({
       shoppingCartQtn: this.state.shoppingCartQtn + 1,
     });
+    //this.props.addQtyInCart()
   }
 
   handleAddToCart = (e, product) => {
@@ -35,6 +36,7 @@ class AddToCart extends React.Component {
   }
 
   componentDidMount() {
+    console.log('props', this.props.product);
     const { value } = this.props;
     value && this.setState({
       shoppingCartQtn: value,
