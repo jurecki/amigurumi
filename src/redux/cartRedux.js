@@ -1,3 +1,6 @@
+import axios from 'axios';
+import { API_URL } from '../config';
+
 /* selectors */
 export const getShoppingCart = ({ cart }) => cart;
 
@@ -6,35 +9,58 @@ const reducerName = 'cart';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 // action types
+const START_REQUEST = createActionName('START_REQUEST');
+const END_REQUEST = createActionName('END_REQUEST');
+const ERROR_REQUEST = createActionName('ERROR_REQUEST');
+
 export const ADD_TO_CART = createActionName('ADD_TO_CART');
 export const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 export const SAVE_SHIPPING = createActionName('SAVE_SHIPPING');
 export const SAVE_PAYMENT = createActionName('SAVE_PAYMENT');
 
 // action creators
-// export const createActionAddToCart = (payload, qty) => ({ payload: { ...payload, qty: qty }, type: ADD_TO_CART });
+
+export const startRequest = payload => ({ payload, type: START_REQUEST });
+export const endRequest = payload => ({ payload, type: END_REQUEST });
+export const errorRequest = payload => ({ payload, type: ERROR_REQUEST });
+
+export const createActionAddToCart = (payload, qty) => ({ payload: { ...payload, qty: qty }, type: ADD_TO_CART });
 // export const createActionRemoveFromCart = payload => ({ payload, type: REMOVE_FROM_CART });
 export const createActionSaveShipping = payload => ({ payload, type: SAVE_SHIPPING });
 export const createActionSavePayment = payload => ({ payload, type: SAVE_PAYMENT });
 
 /* thunk creators */
 
-export const addCartToStorage = (product, qty) => {
+export const addCartToStorage = (data) => {
 
-  let cart = [];
-  let cartProducts = [];
+  // let cart = [];
+  // let cartProducts = [];
 
-  cartProducts = JSON.parse(localStorage.getItem('cart'));
-  if (cartProducts === null) {
-    cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
-    localStorage.setItem('cart', JSON.stringify(cart));
-  } else {
-    cart = JSON.parse(localStorage.getItem('cart'));
-    cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
+  // cartProducts = JSON.parse(localStorage.getItem('cart'));
+  // if (cartProducts === null) {
+  //   cart = [{ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty }];
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  // } else {
+  //   cart = JSON.parse(localStorage.getItem('cart'));
+  //   cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
 
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log('dodaj product');
-  }
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  //   console.log('dodaj product');
+  // }
+
+  return async dispatch => {
+    dispatch(startRequest({ name: ADD_TO_CART }));
+    try {
+      console.log('DATA ITEMS IN REDUX', data);
+
+      let res = await axios.post(`${API_URL}/cart`, data);
+
+      dispatch(createActionAddToCart(res.data));
+      dispatch(endRequest({ name: ADD_TO_CART }));
+    } catch (e) {
+      dispatch(errorRequest({ name: ADD_TO_CART, error: e.message }));
+    }
+  };
 
 };
 
@@ -53,11 +79,44 @@ export const removeCartFormLocalStorage = (id) => {
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    // case ADD_TO_CART:
-    //   return {
-    //     ...statePart,
-    //     cartItems: [...statePart.cartItems, action.payload],
-    //   };
+    case START_REQUEST:
+      return {
+        ...statePart,
+        requests: {
+          [action.payload.name]: {
+            pending: true,
+            error: null,
+            success: false,
+          },
+        },
+      };
+    case END_REQUEST:
+      return {
+        ...statePart,
+        requests: {
+          [action.payload.name]: {
+            pending: false,
+            error: null,
+            sucess: true,
+          },
+        },
+      };
+    case ERROR_REQUEST:
+      return {
+        ...statePart,
+        requests: {
+          [action.payload.name]: {
+            pending: false,
+            error: action.payload.message,
+            sucess: false,
+          },
+        },
+      };
+    case ADD_TO_CART:
+      return {
+        ...statePart,
+        cartItems: [...statePart.cartItems, action.payload],
+      };
     // case REMOVE_FROM_CART: {
     //   let cartItems = statePart.cartItems.filter(item => item._id !== action.payload);
     //   return {
