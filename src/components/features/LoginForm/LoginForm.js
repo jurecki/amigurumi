@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './LoginForm.module.scss';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { API_URL } from '../../../config';
@@ -53,11 +54,11 @@ class LoginForm extends React.Component {
         <div className='form-row justify-content-start ml-3 mt-3'>
           <button type="submit" className="btn btn-secondary ">LOGIN</button>
 
-          <button type="submit" className="btn btn-secondary "><a href={`${API_URL}/google`}>LOGIN WITH GOOGLE</a></button>
+          <button type="submit" className={styles.loginBtnGoogle}><a href={`${API_URL}/google`}>LOGIN WITH GOOGLE</a></button>
 
         </div>
-        <div>
-          <Link to={`${process.env.PUBLIC_URL}/register`}>No account? Create one here ?</Link>
+        <div className={styles.subtitle}>
+          No account? <br /> <Link to={`${process.env.PUBLIC_URL}/register`}>Create one here</Link>
         </div>
       </form >
     );
