@@ -47,25 +47,19 @@ export const addCartToStorage = (product, qty) => {
     let index = cartProducts.findIndex(item => item._id === product._id);
 
     if (index === -1) {
-      // if object dosen't exist add porduct to shoppingCart
-      cartProducts.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty });
+      // if object dosen't exist add product to the basket
+      cartProducts.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty, notes: '' });
       localStorage.setItem('cart', JSON.stringify(cartProducts));
     }
     else {
-      // remove product from shoppingCart and add this same product with qty++
-      let cart;
-      const cartProducts = JSON.parse(localStorage.getItem('cart'));
-      localStorage.removeItem('cart');
-      cart = cartProducts.filter(item => item._id !== product._id);
-      cart.push({ _id: product._id, name: product.name, image: product.image, price: product.price, qty: qty + 1 });
-      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('This product has been already added to the basket');
     }
   }
 
 };
 
 export const removeCartFormLocalStorage = (id) => {
-  //remove item form LocalStorage
+
   let cart;
   const cartProducts = JSON.parse(localStorage.getItem('cart'));
   localStorage.removeItem('cart');
@@ -76,14 +70,14 @@ export const removeCartFormLocalStorage = (id) => {
 };
 
 export const changeProductQty = (action, id) => {
-  console.log( action, id);
 
   const cartProducts = JSON.parse(localStorage.getItem('cart'));
   localStorage.removeItem('cart');
 
   cartProducts.forEach(item => {
-    if(item._id === id) {
-      item.qty++;
+    if (item._id === id) {
+      if (action === 'increase') item.qty++;
+      else item.qty--;
     }
   });
 

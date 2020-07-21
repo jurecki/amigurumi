@@ -34,6 +34,7 @@
       img {
         max-width: 10rem;
         max-height: 10rem;
+        margin-right: 10px;
       }
     }
   }
@@ -55,6 +56,9 @@
       justify-content: space-between;
       margin-bottom: 1rem;
     }
+    li:last-child {
+      justify-content: center
+    }
     }
   }
 .placeorderInfo > div {
@@ -72,12 +76,6 @@
   width: 100%;
 }
 
-
-
-.cartImage{
-  flex: 1 1;
-  padding-right: 15px;
-}
 .cartName{
   flex: 8 1;
 }
@@ -85,4 +83,13 @@
   flex: 1 1;
   font-size: 2.5rem;
   text-align: right;
+}
+
+.button {
+  padding: 15px;
+  &:hover {
+    background-color: $text-color-prime;
+    color: $text-color-light;
+    border-color: $text-color-prime;
+  }
 }

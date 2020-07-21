@@ -115,7 +115,7 @@ class PlaceOrderPage extends React.Component {
                   <div>${totalPrice}</div>
                 </li>
                 <li>
-                  <button className="button primary full-width" onClick={(e) => this.handleOrder(e, shippingPrice, totalPrice)} >Place Order</button>
+                  <button className={styles.button} onClick={(e) => this.handleOrder(e, shippingPrice, totalPrice)} >Place Order</button>
                 </li>
               </ul>
             </div>

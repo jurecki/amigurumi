@@ -2,22 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ShoppingCartPage.module.scss';
 import { Link, withRouter } from 'react-router-dom';
-import AddToCart from '../../features/AddToCart/AddToCartContainer';
 
 class ShoppingCartPage extends React.Component {
+  state = {
+    notes: '',
+  }
+
+  handleOnChange = (e, id) => {
+    e.preventDefault();
+    const value = e.target.value;
+    const name = e.target.name;
+    this.setState({
+      [name]: value,
+    }, () => {
+      //save notes in localStorage, ASYNC callback
+      const cartProducts = JSON.parse(localStorage.getItem('cart'));
+      localStorage.removeItem('cart');
+
+      cartProducts.forEach(item => {
+        if (item._id === id) {
+          item.notes = this.state.notes;
+        }
+      });
+
+      localStorage.setItem('cart', JSON.stringify(cartProducts));
+    });
+  }
 
   removeFromCart = (id) => {
     this.props.removeFromCart(id);
     this.forceUpdate();
   }
 
-  productQty = (e,action, id) => {
+  productQty = (e, action, id) => {
     e.preventDefault();
     this.props.changeProductQty(action, id);
+    this.forceUpdate();
   }
 
   checkoutHandler = () => {
-    console.log('userLogin', this.props.user);
     if (this.props.user === undefined) {
       this.props.history.push('/login');
     } else this.props.history.push('/shipping');
@@ -51,17 +74,19 @@ class ShoppingCartPage extends React.Component {
                         </Link>
                       </div>
                       <div>
-
                         Quantity:
-                        <button onClick={(e) => this.productQty(e, 'increase', item._id)}>+</button>
-                        <button onClick={(e) => this.productQty(e, 'decrease', item._id)}>-</button>
-
-                        <AddToCart product={cartItems} btn='hidden1' counter='' value={item.qty} />
-
+                        <button className={styles.button} disabled={item.qty === 1 ? true : false} onClick={(e) => this.productQty(e, 'decrease', item._id)}>-</button>
+                        <span> {item.qty} </span>
+                        <button className={styles.button} onClick={(e) => this.productQty(e, 'increase', item._id)}>+</button>
                         <button type="button" className={styles.button} onClick={this.removeFromCart.bind(this, item._id)} >
                           Delete
                         </button>
                       </div>
+                      <div>
+                        <label>Product preferences (size/color):</label>
+                        <input type="text" className="form-control" placeholder={item.notes} onFocus={(e) => e.target.placeholder = ''} onBlur={(e) => e.target.placeholder = item.notes} name='notes' onChange={(e) => this.handleOnChange(e, item._id)} />
+                      </div>
+
                     </div>
                     <div className={styles.cartPrice}>
                       ${item.price * item.qty}
@@ -77,7 +102,7 @@ class ShoppingCartPage extends React.Component {
               <h3>
                 Total ({cartItems.length} products) : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
               </h3>
-              <button className={styles.button} disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
+              <button className={styles.checkout} disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
                 Proceed to Checkout
               </button>
             </div>
