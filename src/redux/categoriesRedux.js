@@ -2,7 +2,7 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 /* selectors */
-export const getAll = ({ categories }) => categories;
+export const getAll = ({ categories }) => categories.data;
 
 // action name creator
 const reducerName = 'categories';

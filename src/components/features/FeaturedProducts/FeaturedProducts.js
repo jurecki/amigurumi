@@ -12,9 +12,6 @@ const FeaturedProducts = () => {
 
           <div className={styles.shopNow}>
             <img src='https://image.shutterstock.com/z/stock-photo-handmade-knitted-toys-amigurumi-toys-crochet-stuffed-animals-bunnies-and-penguin-miniature-1405761665.jpg' alt='photo' />
-            <div className={styles.buttons}>
-              <Button variant='white'>KUP TERAZ</Button>
-            </div>
           </div>
 
           <div className={styles.arrowWrapper}>

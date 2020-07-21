@@ -2,8 +2,9 @@ import React from 'react';
 import styles from './MenuBar.module.scss';
 import ProductSearch from '../../features/ProductSearch/ProductSearch';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const MenuBar = () => (
+const MenuBar = (props) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row align-item-center'>
@@ -15,20 +16,25 @@ const MenuBar = () => (
             <li>
               <Link to={`${process.env.PUBLIC_URL}/`} className={styles.active} >Home</Link>
             </li>
-            <li>
-              <a href='#'>Kategoria 1</a>
-            </li>
-            <li>
-              <a href='#'>Kategoria 2</a>
-            </li>
-            <li>
-              <a href='#'>Kategoria 3</a>
-            </li>
+            {/* if products don't load show spinner */}
+            {props.categories === undefined
+              ?
+              <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
+              :
+              props.categories.map(category => <li key={category._id}><a href='#'>{category.name}</a></li>)}
           </ul>
         </div>
       </div>
     </div>
   </div>
 );
+
+MenuBar.propTypes = {
+  categories: PropTypes.array,
+};
 
 export default MenuBar;

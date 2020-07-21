@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 
 import TopBar from '../TopBar/TopBarConainer';
 import CompanyClaim from '../CompanyClaim/CompanyClaim';
-import MenuBar from '../MenuBar/MenuBar';
+import MenuBar from '../MenuBar/MenuBarContainer';
 
 const Header = () => (
   <header className={styles.root}>
