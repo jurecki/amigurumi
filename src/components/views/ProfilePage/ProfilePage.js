@@ -16,7 +16,6 @@ class ProfilePage extends React.Component {
 
   render() {
     const { user } = this.props;
-    console.log('order', this.props.orders);
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -41,7 +40,6 @@ ProfilePage.propTypes = {
   loadOrdersByUser: propTypes.func,
   match: propTypes.object,
   orders: propTypes.array,
-  user: propTypes.array,
 };
 
 

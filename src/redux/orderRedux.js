@@ -31,9 +31,6 @@ export const addOrderRequest = (data) => {
   return async dispatch => {
     dispatch(startRequest({ name: ADD_ORDER }));
     try {
-      console.log('DATA ITEMS IN REDUX', data);
-      console.log('DATA SHIPPING IN REDUX', data.shipping);
-
       let res = await axios.post(`${API_URL}/orders`, data);
 
       dispatch(addOrder(res.data));
@@ -114,7 +111,7 @@ export default function reducer(statePart = [], action = {}) {
     case LOAD_ORDER_BY_USER:
       return {
         ...statePart,
-        data: [action.payload],
+        data: action.payload,
       };
     case LOAD_ORDER_BY_ID:
       return {

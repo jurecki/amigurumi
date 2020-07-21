@@ -24,16 +24,27 @@ class OrderList extends React.Component {
             </tr>
           </thead>
           <tbody>
-
-            {orders.map(order => <tr key={order._id}>
-              <td>{order._id}</td>
-              <td>{order.createDate}</td>
-              <td>{order.totalPrice}</td>
-              <td>PAY NOW</td>
-              <td>
-                <Link to={'/order/' + order._id}>DETAILS</Link>
-              </td>
-            </tr>)}
+            {orders.length === 0
+              ?
+              <tr>
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+              </tr>
+              :
+              orders.map(order => <tr key={order._id}>
+                <td>{order._id}</td>
+                <td>{order.createDate.slice(0, 10)}</td>
+                <td>{order.totalPrice}</td>
+                <td>PAY NOW</td>
+                <td>
+                  <Link to={'/order/' + order._id}>DETAILS</Link>
+                </td>
+              </tr>
+              )
+            }
 
           </tbody>
         </table>

@@ -7,7 +7,6 @@ import productsRedux from './productsRedux';
 import usersRedux from './usersRedux';
 import cartRedux from './cartRedux';
 import orderRedux from './orderRedux';
-import userLoginRedux from './userLoginRedux';
 
 //define reducer
 const reducers = {
@@ -16,7 +15,6 @@ const reducers = {
   users: usersRedux,
   cart: cartRedux,
   orders: orderRedux,
-  userLogin: userLoginRedux,
 };
 
 // add blank reducers for initial state properties without reducers

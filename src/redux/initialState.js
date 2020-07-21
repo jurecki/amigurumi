@@ -8,7 +8,6 @@ const initialState = {
   },
   orders: [],
   users: [],
-  requests: [],
 
 };
 

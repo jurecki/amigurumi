@@ -100,7 +100,7 @@ class ShoppingCartPage extends React.Component {
           {cartItems.length !== 0 &&
             <div className={styles.cartAction}>
               <h3>
-                Total ({cartItems.length} products) : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
+                Total : {cartItems.reduce((previousScore, currentScore, index) => previousScore + currentScore.price * currentScore.qty, 0)} PLN
               </h3>
               <button className={styles.checkout} disabled={cartItems.length === 0} onClick={this.checkoutHandler}>
                 Proceed to Checkout

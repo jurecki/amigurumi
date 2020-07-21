@@ -50,7 +50,7 @@ router.get('/orders/:id', async (req, res) => {
 
 router.get('/orders/user/:id', async (req, res) => {
   try {
-    const result = await Order.find({ idUser: req.params.id });
+    const result = await Order.find({ userId: req.params.id });
     if (!result) res.status(400).json({ category: 'Not found' });
     else res.json(result);
   }
