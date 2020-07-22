@@ -28,7 +28,7 @@ const CompanyClaim = () => {
                   <FontAwesomeIcon className={styles.icon} icon={faShoppingCart} />
                 </Link>
               </div>
-              {cartItems.length !== 0 && <div className={styles.cartCounter}>{cartItems.length}</div>}
+              {cartItems !== null && <div className={styles.cartCounter}>{cartItems.length}</div>}
             </div>
           </div>
         </div>
