@@ -54,7 +54,7 @@ app.use('*', (req, res) => {
 
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/amigurumiShop', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://admin:hEafNSGqQ9iYtfa6@amigurumishop.egipu.mongodb.net/amigurumiShop?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');

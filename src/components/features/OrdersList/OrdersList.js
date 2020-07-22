@@ -27,11 +27,14 @@ class OrderList extends React.Component {
             {orders.length === 0
               ?
               <tr>
-                <div className="d-flex justify-content-center">
-                  <div className="spinner-border" role="status">
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                </div>
+                <td>
+                  {/* <div className="d-flex justify-content-center">
+                    <div className="spinner-border" role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  </div> */}
+                  <div>You do not have any orders</div>
+                </td>
               </tr>
               :
               orders.map(order => <tr key={order._id}>

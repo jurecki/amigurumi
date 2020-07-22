@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Footer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -23,64 +22,61 @@ const Footer = () => {
                 <h5>Information</h5>
                 <ul>
                   <li>
-                    <a href='#'>O nas</a>
+                    <a href='/#'>About us</a>
                   </li>
                   <li>
-                    <a href='#'>Polityka Prywatności</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className='col-xs-1 col-sm-6 col-lg-3'>
-              <div className={styles.menuWrapper}>
-                <h5>Moje Konto</h5>
-                <ul>
-                  <li>
-                    <a href='#'>Login</a>
-                  </li>
-                  <li>
-                    <a href='#'>Lista zyczeń</a>
-                  </li>
-                  <li>
-                    <a href='#'>Zamówienia</a>
+                    <a href='/#'>Privacy policy</a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className='col-xs-1 col-sm-6 col-lg-3'>
               <div className={styles.menuWrapper}>
-                <h5>Produkty</h5>
+                <h5>My account</h5>
                 <ul>
                   <li>
-                    <a href='#'>Oferty specjalne</a>
+                    <a href='/#'>Login</a>
                   </li>
                   <li>
-                    <a href='#'>Nowe produkty</a>
+                    <a href='/#'>Whish lists</a>
                   </li>
                   <li>
-                    <a href='#'>Najwyzej oceniane</a>
+                    <a href='/#'>Orders</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className='col-xs-1 col-sm-6 col-lg-3'>
+              <div className={styles.menuWrapper}>
+                <h5>Products</h5>
+                <ul>
+                  <li>
+                    <a href='/#'>Special offer</a>
                   </li>
                   <li>
-                    <a href='#'>Najcześciej kupowane</a>
+                    <a href='/#'>New Products</a>
+                  </li>
+                  <li>
+                    <a href='/#'>Top rated</a>
+                  </li>
+                  <li>
+                    <a href='/#'>Most popular</a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className='col-sx-1 col-sm-6 col-lg-3'>
               <div className={styles.menuWrapper}>
-                <h5>Szczegóły</h5>
+                <h5>Details</h5>
                 <ul>
                   <li>
-                    <a href='#'>Opcje płatności</a>
+                    <a href='/#'>Payment</a>
                   </li>
                   <li>
-                    <a href='#'>Wysyłka i dostawa</a>
+                    <a href='/#'> Shipping and Delivery</a>
                   </li>
                   <li>
-                    <a href='#'>Zwroty</a>
-                  </li>
-                  <li>
-                    <a href='#'>Shipping</a>
+                    <a href='/#'>Returns</a>
                   </li>
                 </ul>
               </div>
@@ -96,32 +92,32 @@ const Footer = () => {
           <div className={'col text-right order-lg-3 order-md-3 ' + styles.socialMedia}>
             <ul>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon icon={faTwitter}>Twitter</FontAwesomeIcon>
                 </a>
               </li>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon icon={faFacebookF}>Facebook</FontAwesomeIcon>
                 </a>
               </li>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon icon={faYoutube}>YouTube</FontAwesomeIcon>
                 </a>
               </li>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon icon={faGooglePlusG}>Google Plus</FontAwesomeIcon>
                 </a>
               </li>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon icon={faLinkedinIn}>LinkedIn</FontAwesomeIcon>
                 </a>
               </li>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon icon={faPinterestP}>Pinterest</FontAwesomeIcon>
                 </a>
               </li>

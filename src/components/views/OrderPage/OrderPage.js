@@ -13,7 +13,7 @@ class OrderPage extends React.Component {
 
   render() {
     const { shippingAddress, isDelivered, deliveredAt, payment, isPaid, paidAt, orderItem, shippingPrice, totalPrice } = this.props.order[0];
-    console.log('oRDER by ID', this.props.order[0]);
+
     return (
       (this.props.order.length === 0) ?
         <div className="d-flex justify-content-center">
@@ -60,7 +60,7 @@ class OrderPage extends React.Component {
                     </li>
                     {
                       orderItem.map(item =>
-                        <li key={item.id}>
+                        <li key={item._id}>
                           <div className={styles.cartImages}>
                             <img src={item.image} alt='product' />
                           </div>
@@ -73,6 +73,9 @@ class OrderPage extends React.Component {
                             </div>
                             <div>
                               Qty: {item.qty}
+                            </div>
+                            <div>
+                              Notes: {item.notes}
                             </div>
                           </div>
                           <div className={styles.cartPrice}>

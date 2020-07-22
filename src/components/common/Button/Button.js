@@ -9,7 +9,7 @@ const Button = ({ children, variant, click }) => {
   else classes.push('main');
 
   return (
-    <a href='#' className={classes.join('')} onClick={click}>
+    <a href='/#' className={classes.join('')} onClick={click}>
       {children}
     </a>
   );

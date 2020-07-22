@@ -14,20 +14,20 @@ const TopBar = (props) => (
             <li> PLN <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
               <ul>
                 <li>
-                  <a href='#'>USD</a>
+                  <a href='/#'>USD</a>
                 </li>
                 <li>
-                  <a href='#'>EURO</a>
+                  <a href='/#'>EURO</a>
                 </li>
               </ul>
             </li>
             <li>Polski <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
               <ul>
                 <li>
-                  <a href='#'>English</a>
+                  <a href='/#'>English</a>
                 </li>
                 <li>
-                  <a href='#'>Deutsch</a>
+                  <a href='/#'>Deutsch</a>
                 </li>
               </ul>
             </li>
@@ -51,7 +51,7 @@ const TopBar = (props) => (
                 </Link>
               </li>
               <li>
-                <a href='#'>
+                <a href='/#'>
                   <FontAwesomeIcon className={styles.icon} icon={faBars} />
                 </a>
               </li>

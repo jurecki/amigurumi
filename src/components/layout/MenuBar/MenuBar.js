@@ -25,7 +25,7 @@ const MenuBar = (props) => (
                 </div>
               </div>
               :
-              props.categories.map(category => <li key={category._id}><a href="#">{category.name}</a></li>)}
+              props.categories.map(category => <li key={category._id}><a href="/#">{category.name}</a></li>)}
           </ul>
         </div>
       </div>

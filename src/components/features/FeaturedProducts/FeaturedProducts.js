@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
         <div className='row'>
 
           <div className={styles.shopNow}>
-            <img src='https://image.shutterstock.com/z/stock-photo-handmade-knitted-toys-amigurumi-toys-crochet-stuffed-animals-bunnies-and-penguin-miniature-1405761665.jpg' alt='photo' />
+            <img src='https://image.shutterstock.com/z/stock-photo-handmade-knitted-toys-amigurumi-toys-crochet-stuffed-animals-bunnies-and-penguin-miniature-1405761665.jpg' alt='amigurumi_photo' />
           </div>
 
           <div className={styles.arrowWrapper}>
