@@ -6,8 +6,6 @@ const Product = require('../models/product.model');
 router.get('/products', async (req, res) => {
 
   try {
-    console.log(req.session.cart);
-
     const result = await Product.find();
     if (!result) res.status(400).json({ product: 'Not found' });
     else res.json(result);
