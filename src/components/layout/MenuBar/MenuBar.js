@@ -9,7 +9,9 @@ const MenuBar = (props) => (
     <div className='container'>
       <div className='row align-item-center'>
         <div className='col'>
-          <ProductSearch />
+          <div className={styles.productSearch}>
+            <ProductSearch />
+          </div>
         </div>
         <div className={`col-auto ${styles.menu}`} >
           <ul>

@@ -21,10 +21,10 @@ const TopBar = (props) => (
                 </li>
               </ul>
             </li>
-            <li>Polski <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
+            <li>English <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
               <ul>
                 <li>
-                  <a href='/#'>English</a>
+                  <a href='/#'>Polish</a>
                 </li>
                 <li>
                   <a href='/#'>Deutsch</a>
@@ -42,12 +42,12 @@ const TopBar = (props) => (
             <>
               <li>
                 <Link to={`${process.env.PUBLIC_URL}/login`}>
-                  <FontAwesomeIcon className={styles.icon} icon={faUser} />Login
+                  <FontAwesomeIcon className={styles.icon} icon={faUser} /><span>Login</span>
                 </Link>
               </li>
               <li>
                 <Link to={`${process.env.PUBLIC_URL}/register`}>
-                  <FontAwesomeIcon className={styles.icon} icon={faLock} />Register
+                  <FontAwesomeIcon className={styles.icon} icon={faLock} /><span>Register</span>
                 </Link>
               </li>
               <li>

@@ -13,7 +13,7 @@ const CompanyClaim = () => {
           <div className={`col-12 order-3 text-right col-md-4 text-md-left order-md-1 ${styles.phoneNumber}`}>
             <p>
               <FontAwesomeIcon className={styles.icon} icon={faPhoneAlt} />
-            +48 606-606-606
+              +48 606-606-606
             </p>
           </div>
           <div className={`col-6 col-md-3 text-md-center order-md-2 ${styles.logo}`}>

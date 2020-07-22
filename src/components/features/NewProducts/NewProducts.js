@@ -26,7 +26,7 @@ class NewProducts extends React.Component {
                   </div>
                 </div>
                 :
-                products.map(product => <div key={product._id} className='col-12 col-lg-3'> <ProductBox product={product} /> </div>)
+                products.map(product => <div key={product._id} className='col-sm-6 col-md-6 col-lg-4 col-xl-3'> <ProductBox product={product} /> </div>)
               }
             </div>
           </div>

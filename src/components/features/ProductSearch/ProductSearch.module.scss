@@ -42,3 +42,10 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .searchField input {
+    display: none;
+  }
+}
+
