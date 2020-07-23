@@ -1,7 +1,8 @@
 https://amigurumi.herokuapp.com/ 
 
---------------------
+---------------
 In the project directory, you can run: npm start
+
 ---------------
 
 1. React: Components, Props, Events, Router, Axios
