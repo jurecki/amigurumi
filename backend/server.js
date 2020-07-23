@@ -14,6 +14,8 @@ const ordersRoutes = require('./routes/orders.routes');
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require('./routes/user.routes');
 const app = express();
+require('dotenv').config();
+
 /* MIDDLEWARE */
 
 //init session mechanism
@@ -52,9 +54,8 @@ app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-
 /* MONGOOSE */
-mongoose.connect('mongodb+srv://admin:hEafNSGqQ9iYtfa6@amigurumishop.egipu.mongodb.net/amigurumiShop?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://' + process.env.LOGIN + ':' + process.env.PASSWORD + '@amigurumishop.egipu.mongodb.net/amigurumiShop?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');

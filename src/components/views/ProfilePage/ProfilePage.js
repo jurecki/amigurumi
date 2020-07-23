@@ -5,15 +5,6 @@ import OrderList from '../../features/OrdersList/OrdersListContainer';
 
 class ProfilePage extends React.Component {
 
-
-  handleOnSubmit = () => {
-    console.log('update userInfo');
-  }
-
-  handleLogout = () => {
-    console.log('logoutUser');
-  }
-
   render() {
     const { user } = this.props;
     return (

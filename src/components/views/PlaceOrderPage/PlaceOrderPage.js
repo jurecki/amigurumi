@@ -9,7 +9,6 @@ class PlaceOrderPage extends React.Component {
     e.preventDefault();
     const { cart, user } = this.props;
     const cartItems = JSON.parse(localStorage.getItem('cart'));
-    console.log('userLogin', user[0]._id);
     this.props.createOrder(cartItems, cart.shipping, cart.payment, shippingPrice, totalPrice, user[0]._id);
     localStorage.removeItem('cart');
 
@@ -67,7 +66,7 @@ class PlaceOrderPage extends React.Component {
                       </div>
                       :
                       cartItems.map(item =>
-                        <li key={item.id}>
+                        <li key={item._id}>
                           <div className={styles.cartImages}>
                             <img src={item.image} alt='product' />
                           </div>

@@ -17,7 +17,6 @@ router.get('/orders', async (req, res) => {
 
 router.post('/orders', async (req, res) => {
   try {
-    console.log('serwer req', req.body);
     const orderItem = req.body.items;
     const shippingAddress = req.body.shipping;
     const payment = req.body.payment;
@@ -28,7 +27,6 @@ router.post('/orders', async (req, res) => {
 
     const newOrder = new Order({ shippingAddress, orderItem, payment, shippingPrice, userId, totalPrice, createDate });
     await newOrder.save();
-    console.log('newOrder', newOrder);
     res.json(newOrder);
   }
 

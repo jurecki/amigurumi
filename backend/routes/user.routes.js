@@ -23,7 +23,7 @@ router.post('/users', async (req, res) => {
 
 router.get('/profile/:id', async (req, res) => {
   try {
-    const result = await User.find({id: req.params.id});
+    const result = await User.find({ id: req.params.id });
     if (!result) res.status(404).json({ post: 'Not found' });
     else {
       res.json(result);
@@ -36,13 +36,13 @@ router.get('/profile/:id', async (req, res) => {
 
 router.post('/users/login', async (req, res) => {
   try {
-    console.log('userlogin', req.body);
+
     const result = await User.find({ email: req.body.email, password: req.body.password });
     if (result.length === 0) res.status(404).send({ message: 'User Not Found' });
     else {
-      console.log('poprawnie zalogowany', result);
+
       res.json(result);
-      //res.redirect(`/api/profile/${result[0]._id}`);
+
 
     }
   }
